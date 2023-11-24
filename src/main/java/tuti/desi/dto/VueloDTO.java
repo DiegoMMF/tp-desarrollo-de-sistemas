@@ -11,9 +11,7 @@ public class VueloDTO {
     private LocalDateTime fechaHoraPartida;
     private Long avionId;
     
-    public VueloDTO() {
-        // Constructor vacío necesario para algunas operaciones
-    }
+    public VueloDTO() { }
 
     public VueloDTO(String numeroVuelo, Long origenId, Long destinoId, String tipoVuelo,
                     Double precioPasaje, LocalDateTime fechaHoraPartida, Long avionId) {

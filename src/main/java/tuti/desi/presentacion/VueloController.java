@@ -1,6 +1,7 @@
 package tuti.desi.presentacion;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -8,6 +9,8 @@ import tuti.desi.entidades.Vuelo;
 import tuti.desi.servicios.VueloService;
 
 import java.util.List;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 
 @RestController
 @RequestMapping("/api/vuelos")
@@ -33,9 +36,13 @@ public class VueloController {
     }
 
     @PostMapping
-    public ResponseEntity<Vuelo> crearVuelo(@RequestBody Vuelo vuelo) {
-        Vuelo nuevoVuelo = vueloService.crearVuelo(vuelo);
-        return new ResponseEntity<>(nuevoVuelo, HttpStatus.CREATED);
+    public ResponseEntity<?> crearVuelo(@RequestBody VueloForm vuelo) {
+        try {
+            Vuelo nuevoVuelo = vueloService.crearVuelo(vuelo);
+            return new ResponseEntity<>(nuevoVuelo, HttpStatus.CREATED);
+        } catch (Exception e) {
+			return new ResponseEntity<>(e.getMessage(), HttpStatus.CONFLICT);
+        }
     }
 
     @PutMapping("/{id}")

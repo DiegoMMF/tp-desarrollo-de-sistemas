@@ -4,6 +4,9 @@ import jakarta.persistence.*;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.Iterator;
+import java.util.List;
+
 import tuti.desi.entidades.Avion;
 
 @Entity
@@ -39,6 +42,9 @@ public class Vuelo {
     @Column(nullable = false)
     private String estado = "Normal";
 
+    @OneToMany(mappedBy = "vuelo", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Asiento> asientos;
+
     public enum TipoVuelo{
     	NACIONAL,
     	INTERNACIONAL
@@ -54,6 +60,16 @@ public class Vuelo {
 	   this.precioPasaje = precioPasaje;
 	   this.fechaHoraPartida = fechaHoraPartida;
 	   this.avion = avion;
+	   for(int i=0; i<this.avion.getCantFilas(); i++) {
+		   for(int j=0; j<this.avion.getAsientosPorFila(); j++) {
+			   Asiento asiento = new Asiento();
+			   asiento.setVuelo(this);
+			   asiento.setFila(i);
+			   asiento.setColumna(j);
+			   asiento.setCliente(null);
+			   this.asientos.add(asiento);
+		   }
+	   } 
 	}
     
     // Getters
