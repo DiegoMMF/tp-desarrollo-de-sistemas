@@ -40,6 +40,9 @@ public class CiudadesBuscarController {
     }
      
     
+    /**
+     * @return
+     */
     @ModelAttribute("allProvincias")
     public List<Provincia> getAllProvincias() {
         return this.servicioProvincia.getAll();
