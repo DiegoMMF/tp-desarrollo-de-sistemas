@@ -13,7 +13,7 @@ import jakarta.validation.constraints.Size;
 
 @Entity
 @Validated
-public class Pasaje {
+public class Tasas {
 	 @Id
 	    @GeneratedValue(strategy = GenerationType.IDENTITY)
 	    private Long id;
@@ -32,12 +32,12 @@ public class Pasaje {
 	    private int cotizacionDolar;
 		
 	    //Constructor vacio
-	    public Pasaje() {
+	    public Tasas() {
 		
 		}
 
 	    //Constructor con Atributos
-		public Pasaje(Long id,
+		public Tasas(Long id,
 				@Size(min = 0, max = 100, message = "Valor expresado en %, no debe ser mayor a 100") @DecimalMin(value = "0.00", inclusive = false) int iVA,
 				@DecimalMin(value = "0.00", inclusive = false, message = "El valor debe ser positivo.") int tasaAeroportuariaNacional,
 				@DecimalMin(value = "0.00", inclusive = false, message = "El valor debe ser positivo.") int tasaAeroportuariaInternacional,
