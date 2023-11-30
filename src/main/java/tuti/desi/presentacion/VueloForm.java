@@ -6,14 +6,14 @@ import java.time.LocalDateTime;
 import tuti.desi.entidades.Vuelo.TipoVuelo;
 
 public class VueloForm {
-	private Long id_avion;
-	private Long id_destino;
-	private Long id_origen;
-	private TipoVuelo tipoVuelo;
-	private BigDecimal precioPasaje;
-	private LocalDateTime fechaHoraPartida;
-	private String estado;
-	private String numeroVuelo;
+	public Long id_avion;
+	public Long id_destino;
+	public Long id_origen;
+	public TipoVuelo tipoVuelo;
+	public BigDecimal precioPasaje;
+	public LocalDateTime fechaHoraPartida;
+	public String estado;
+	public String numeroVuelo;
 	// Constructors
 	
 	public VueloForm() {}

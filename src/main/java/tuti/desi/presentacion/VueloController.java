@@ -36,13 +36,9 @@ public class VueloController {
     }
 
     @PostMapping
-    public ResponseEntity<?> crearVuelo(@RequestBody VueloForm vuelo) {
-        try {
-            Vuelo nuevoVuelo = vueloService.crearVuelo(vuelo);
-            return new ResponseEntity<>(nuevoVuelo, HttpStatus.CREATED);
-        } catch (Exception e) {
-			return new ResponseEntity<>(e.getMessage(), HttpStatus.CONFLICT);
-        }
+    public String crearVueloPost(@ModelAttribute("vueloForm") VueloForm vueloForm) {
+        vueloService.crearVuelo(vueloForm);
+        return "redirect:/vueloABM";
     }
 
     @PutMapping("/{id}")

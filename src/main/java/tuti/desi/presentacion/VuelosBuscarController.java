@@ -35,8 +35,7 @@ public class VuelosBuscarController {
     }
 
     @PostMapping
-    public String buscarPorFechaHora(@ModelAttribute("formBean") @Valid VueloForm formBean, BindingResult result,
-            ModelMap modelo, @RequestParam String action) {
+    public String buscarPorFechaHora(@ModelAttribute("formBean") @Valid VueloForm formBean, BindingResult result, ModelMap modelo, @RequestParam String action) {
         if (action.equals("Buscar")) {
             try {
                 if (!result.hasErrors()) {
