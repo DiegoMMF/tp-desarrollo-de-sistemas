@@ -11,6 +11,8 @@ import tuti.desi.accesoDatos.IVueloRepo;
 import tuti.desi.servicios.AvionService;
 import tuti.desi.servicios.CiudadService;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -20,6 +22,8 @@ public class VueloService implements VueloServiceI {
     private final IVueloRepo vueloRepo;
     private final AvionService avionService;
     private final CiudadService ciudadService;
+    
+    
 
     @Autowired
     public VueloService(IVueloRepo vueloRepositorio, AvionService avionService, CiudadService ciudadService) {
@@ -27,7 +31,12 @@ public class VueloService implements VueloServiceI {
         this.avionService = avionService;
         this.ciudadService = ciudadService;
     }
-
+    
+    @Override
+    public List<Vuelo> obtenerVuelosPorFecha(LocalDateTime localDateTime) {
+        return vueloRepo.findByFechaHoraPartida(localDateTime);
+    }
+    
     @Override
     public List<Vuelo> obtenerTodosLosVuelos() {
         return vueloRepo.findAll();

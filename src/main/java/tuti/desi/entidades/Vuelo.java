@@ -7,6 +7,8 @@ import java.time.LocalDateTime;
 import java.util.Iterator;
 import java.util.List;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import tuti.desi.entidades.Avion;
 
 @Entity
@@ -33,6 +35,7 @@ public class Vuelo {
     private BigDecimal precioPasaje;
 
     @Column(nullable = false)
+    @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm")
     private LocalDateTime fechaHoraPartida;
 
     @ManyToOne
@@ -82,6 +85,9 @@ public class Vuelo {
     public LocalDateTime getFechaHoraPartida() { return fechaHoraPartida; }
     public Avion getAvion() { return avion; }
     public String getEstado() { return estado; }
+    public int getAsientos() {
+        return this.asientos.size();
+    }
     
     //Setters
     public void setId(Long id) { this.id = id; }
