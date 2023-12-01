@@ -62,13 +62,11 @@ public class VueloABMController {
     public String crearVuelo(Model model, @ModelAttribute("vueloForm") @Valid VueloForm vueloForm, BindingResult result) {
         try {
         	vueloService.crearVuelo(vueloForm);
-        	return "redirect:/vueloABM";
+        	return "vueloCreado";
         }catch(Exception err){
         	model.addAttribute("errorMsg", err.getMessage());
         	return "error";
         }
-        
-        
     }
 
 }

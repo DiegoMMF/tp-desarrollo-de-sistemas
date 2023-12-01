@@ -20,6 +20,9 @@ public class Vuelo {
     @Column(nullable = false, unique = true)
     private String numeroVuelo;
 
+    @Column(nullable = false, unique = true)
+    private Integer cantidadDeAsientos;
+
     @ManyToOne
     @JoinColumn(name = "origen_id", nullable = false)
     private Ciudad origen;
@@ -63,16 +66,6 @@ public class Vuelo {
 	   this.precioPasaje = precioPasaje;
 	   this.fechaHoraPartida = fechaHoraPartida;
 	   this.avion = avion;
-	   for(int i=0; i<this.avion.getCantFilas(); i++) {
-		   for(int j=0; j<this.avion.getAsientosPorFila(); j++) {
-			   Asiento asiento = new Asiento();
-			   asiento.setVuelo(this);
-			   asiento.setFila(i);
-			   asiento.setColumna(j);
-			   asiento.setCliente(null);
-			   this.asientos.add(asiento);
-		   }
-	   } 
 	}
     
     // Getters
@@ -85,8 +78,14 @@ public class Vuelo {
     public LocalDateTime getFechaHoraPartida() { return fechaHoraPartida; }
     public Avion getAvion() { return avion; }
     public String getEstado() { return estado; }
-    public int getAsientos() {
-        return this.asientos.size();
+    public List<Asiento> getAsientos() { return this.asientos; }
+    public Integer getCantidadDeAsientos() { return this.cantidadDeAsientos; }
+    public Integer getCantidadDeAsientosLibres(){
+        Integer res=0;
+        for(int i=0; i<this.cantidadDeAsientos; i++){
+            if(this.asientos.get(i).getCliente()==null) res++;
+        }
+        return res;
     }
     
     //Setters
@@ -99,4 +98,8 @@ public class Vuelo {
     public void setFechaHoraPartida(LocalDateTime fechaHoraPartida) { this.fechaHoraPartida = fechaHoraPartida; }
     public void setAvion(Avion avion) { this.avion = avion; }
     public void setEstado(String estado) { this.estado = estado; }
+    public void setCantidadDeAsientos(Integer cant) { this.cantidadDeAsientos = cant; }
+    
+    
+    public void addAsiento(Asiento a) { this.asientos.add(a); }
 }

@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
+import tuti.desi.entidades.Asiento;
 import tuti.desi.entidades.Avion;
 import tuti.desi.entidades.Vuelo;
 import tuti.desi.presentacion.VueloForm;
@@ -87,6 +88,17 @@ public class VueloService implements VueloServiceI {
                 vuelo.setOrigen(ciudadService.getById(vueloForm.getId_origen()));
                 vuelo.setPrecioPasaje(vueloForm.getPrecioPasaje());
                 vuelo.setTipoVuelo(vueloForm.getTipoVuelo());
+            //     for(int x=0; x<vuelo.getAvion().getCantFilas(); x++) {
+         	// 	   for(int j=0; j<vuelo.getAvion().getAsientosPorFila(); j++) {
+         	// 		   Asiento asiento = new Asiento();
+         	// 		   asiento.setVuelo(vuelo);
+         	// 		   asiento.setFila(x);
+         	// 		   asiento.setColumna(j);
+         	// 		   asiento.setCliente(null);
+         	// 		   vuelo.addAsiento(asiento);
+         	// 	   }
+         	//    }
+               vuelo.setCantidadDeAsientos(vuelo.getAvion().getCantFilas()*vuelo.getAvion().getAsientosPorFila());
 
                 System.out.println("Guardando nuevo vuelo: " + vuelo);
                 return vueloRepo.save(vuelo);
