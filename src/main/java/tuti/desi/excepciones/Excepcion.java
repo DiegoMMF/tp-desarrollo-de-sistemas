@@ -2,15 +2,10 @@ package tuti.desi.excepciones;
 
 public class Excepcion extends Exception{
 
-	
-	/*
-	 * Atributo al que está asociado el error
-	 */
 	private  String atributo;
 	
 	public Excepcion() {
 		super();
-		
 	}
 
 	public Excepcion(String mensaje) {
@@ -19,7 +14,7 @@ public class Excepcion extends Exception{
 
 	public Excepcion(String mensaje, String atributo) {
 		super(mensaje);
-		this.atributo=atributo;
+		this.atributo = atributo;
 	}
 
 	public String getAtributo() {
@@ -29,7 +24,4 @@ public class Excepcion extends Exception{
 	public void setAtributo(String atributo) {
 		this.atributo = atributo;
 	}
-
-	
-
 }
