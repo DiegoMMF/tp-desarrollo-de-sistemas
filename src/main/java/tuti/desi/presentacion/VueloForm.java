@@ -6,18 +6,19 @@ import java.time.LocalDateTime;
 import tuti.desi.entidades.Vuelo.TipoVuelo;
 
 public class VueloForm {
-	private Long id_avion;
-	private Long id_destino;
-	private Long id_origen;
-	private TipoVuelo tipoVuelo;
-	private BigDecimal precioPasaje;
-	private LocalDateTime fechaHoraPartida;
-	private String estado;
-	private String numeroVuelo;
+	public Long id_avion;
+	public Long id_destino;
+	public Long id_origen;
+	public TipoVuelo tipoVuelo;
+	public BigDecimal precioPasaje;
+	public LocalDateTime fechaHoraPartida;
+	public String estado;
+	public String numeroVuelo;
+	public Integer cantidadDeAsientos;
 	// Constructors
 	
 	public VueloForm() {}
-	public VueloForm(Long id_avion, Long id_destino, Long id_origen, TipoVuelo tipoVuelo, BigDecimal precioPasaje, LocalDateTime fechaHoraPartida, String estado, String numeroVuelo) {
+	public VueloForm(Long id_avion, Long id_destino, Long id_origen, TipoVuelo tipoVuelo, BigDecimal precioPasaje, LocalDateTime fechaHoraPartida, String estado, String numeroVuelo, Integer cantidadDeAsientos) {
 		this.id_avion = id_avion;
 		this.id_destino = id_destino;
 		this.id_origen = id_origen;
@@ -26,6 +27,8 @@ public class VueloForm {
 		this.fechaHoraPartida = fechaHoraPartida;
 		this.estado = estado;
 		this.numeroVuelo = numeroVuelo;
+		this.cantidadDeAsientos = cantidadDeAsientos;
+
 
 	}
 	
@@ -38,6 +41,7 @@ public class VueloForm {
 	public LocalDateTime getFechaHoraPartida() { return this.fechaHoraPartida; }
 	public String getEstado() { return this.estado; }
 	public String getNumeroVuelo() { return this.numeroVuelo; }
+    public Integer getCantidadDeAsientos() { return this.cantidadDeAsientos; }
 	
 	// Setters
 	public void setId_avion(Long id_avion) { this.id_avion = id_avion; }
@@ -48,4 +52,6 @@ public class VueloForm {
 	public void setFechaHoraPartida(LocalDateTime fechaHoraPartida) { this.fechaHoraPartida = fechaHoraPartida; }
 	public void setEstado(String estado) { this.estado = estado; }
 	public void setNumeroVuelo(String numeroVuelo) { this.numeroVuelo = numeroVuelo; }
+    public void setCantidadDeAsientos(Integer cant) { this.cantidadDeAsientos = cant; }
+
 }

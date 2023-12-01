@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-Desi2023Application<test>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "tuti.desi.Desi2023Application",
+            "projectName": "test",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
