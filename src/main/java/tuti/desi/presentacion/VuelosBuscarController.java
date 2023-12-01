@@ -2,6 +2,7 @@ package tuti.desi.presentacion;
 
 import java.time.LocalDateTime;
 import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+
 import jakarta.validation.Valid;
 import tuti.desi.entidades.Vuelo;
 import tuti.desi.servicios.VueloService;
@@ -33,12 +35,11 @@ public class VuelosBuscarController {
     }
 
     @PostMapping
-    public String buscarPorFechaHora(@ModelAttribute("formBean") @Valid VueloForm formBean, BindingResult result,
-            ModelMap modelo, @RequestParam String action) {
+    public String buscarPorFechaHora(@ModelAttribute("formBean") @Valid VueloForm formBean, BindingResult result, ModelMap modelo, @RequestParam String action) {
         if (action.equals("Buscar")) {
             try {
                 if (!result.hasErrors()) {
-                    LocalDateTime fechaHoraPartida = formBean.getFechaHoraPartida();
+                	LocalDateTime fechaHoraPartida = formBean.getFechaHoraPartida();
                     List<Vuelo> listadoVuelos = servicioVuelo.obtenerVuelosPorFecha(fechaHoraPartida);
                     modelo.addAttribute("listadoVuelos", listadoVuelos);
                     modelo.addAttribute("formBean", formBean);
