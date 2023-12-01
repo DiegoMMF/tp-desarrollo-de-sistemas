@@ -7,5 +7,7 @@
     "activityBarBadge.background": "#25320e",
     "activityBarBadge.foreground": "#e7e7e7"
   },
-  "peacock.color": "#832561"
+  "peacock.color": "#832561",
+  "java.configuration.updateBuildConfiguration": "automatic"
 }
+
