@@ -1,4 +1,4 @@
 .idea/
-target
+target/
 pom.xml
 src/main/resources/application.properties
