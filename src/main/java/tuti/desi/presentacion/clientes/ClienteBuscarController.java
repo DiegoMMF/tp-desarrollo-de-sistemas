@@ -29,8 +29,11 @@ public class ClienteBuscarController {
     @RequestMapping(method= RequestMethod.GET)
     public String preparaForm(Model modelo) {
         ClienteBuscarForm form =  new ClienteBuscarForm();
-        form.setIdCiudadSeleccionada(1L); //Esto es por ejemplo, si quisiera setear un valor por defecto en el filtro de ciudad
-//    	 form.setCiudades(serviceCiudad.getAll());    //  en lugar de esto hacemos @ModelAttribute("allCiudades")
+        // Esto es por ejemplo, si quisiera poner un valor por defecto en el filtro de ciudad
+        form.setIdCiudadSeleccionada(1L);
+
+        // form.setCiudades(serviceCiudad.getAll());
+        // en lugar de la línea anterior, hacemos @ModelAttribute("allCiudades")
         modelo.addAttribute("formBean",form);
         return "clienteBuscar";
     }

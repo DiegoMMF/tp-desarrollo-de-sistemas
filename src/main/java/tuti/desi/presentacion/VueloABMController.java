@@ -50,7 +50,11 @@ public class VueloABMController {
     }
 
     @PostMapping()
-    public String crearVuelo(Model model, @ModelAttribute("vueloForm") @Valid VueloForm vueloForm, BindingResult result) {
+    public String crearVuelo(
+            Model model,
+            @ModelAttribute("vueloForm") @Valid VueloForm vueloForm,
+            BindingResult result
+    ) {
         try {
         	vueloService.crearVuelo(vueloForm);
         	return "vueloCreado";

@@ -16,14 +16,12 @@ import java.util.List;
 @Controller
 @RequestMapping("/reserva")
 public class ReservaController {
-
     @Autowired
     private ClienteService serviceCliente;
-
     @Autowired
     private VueloService serviceVuelo;
 
-    @GetMapping("")
+    @GetMapping
     public String preparaForm(Model modelo) {
         ReservaForm form = new ReservaForm();
         modelo.addAttribute("formBean", form);
@@ -35,7 +33,7 @@ public class ReservaController {
         return this.serviceVuelo.obtenerTodosLosVuelos();
     }
 
-    @PostMapping("")
+    /*@PostMapping("")
     public String submit(
             @ModelAttribute("formBean") ReservaForm formBean,
             BindingResult result,
@@ -54,7 +52,7 @@ public class ReservaController {
         }
         if (action.equals("Reservar")) {
             try {
-                /*serviceCliente.reservarVuelo(formBean.getDni(), formBean.getIdVuelo());*/
+                *//*serviceCliente.reservarVuelo(formBean.getDni(), formBean.getIdVuelo());*//*
                 modelo.addAttribute("resultados", serviceVuelo.obtenerTodosLosVuelos());
             } catch (Exception e) {
                 result.addError(new ObjectError("globalError", e.getMessage()));
@@ -63,5 +61,5 @@ public class ReservaController {
             return "reserva";
         }
         return action;
-    }
+    }*/
 }
