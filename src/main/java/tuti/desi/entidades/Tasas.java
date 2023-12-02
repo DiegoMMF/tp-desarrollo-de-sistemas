@@ -16,20 +16,20 @@ import jakarta.validation.constraints.Size;
 public class Tasas {
 	 @Id
 	    @GeneratedValue(strategy = GenerationType.IDENTITY)
-	    private Long id;
+	    private Long idTasas;
 	    @Column(nullable = false)
 	    @Size(min = 0,max = 100, message = "Valor expresado en %, no debe ser mayor a 100")
 	    @DecimalMin(value = "0.00", inclusive = false)
-	    private int IVA;
+	    private Double IVA;
 	    @Column(nullable = false)
 	    @DecimalMin(value = "0.00", inclusive = false, message = "El valor debe ser positivo.")
-	    private int tasaAeroportuariaNacional;
+	    private Double tasaAeroportuariaNacional;
 	    @Column(nullable = false)
 	    @DecimalMin(value = "0.00", inclusive = false, message = "El valor debe ser positivo.")
-	    private int tasaAeroportuariaInternacional;
+	    private Double tasaAeroportuariaInternacional;
 	    @Column(nullable = false)
 	    @DecimalMin(value = "0.00", inclusive = false, message = "El valor debe ser positivo.")
-	    private int cotizacionDolar;
+	    private Double cotizacionDolar;
 		
 	    //Constructor vacio
 	    public Tasas() {
@@ -38,13 +38,13 @@ public class Tasas {
 
 	    //Constructor con Atributos
 		public Tasas(Long id,
-				@Size(min = 0, max = 100, message = "Valor expresado en %, no debe ser mayor a 100") @DecimalMin(value = "0.00", inclusive = false) int iVA,
-				@DecimalMin(value = "0.00", inclusive = false, message = "El valor debe ser positivo.") int tasaAeroportuariaNacional,
-				@DecimalMin(value = "0.00", inclusive = false, message = "El valor debe ser positivo.") int tasaAeroportuariaInternacional,
-				@DecimalMin(value = "0.00", inclusive = false, message = "El valor debe ser positivo.") int cotizacionDolar) {
+				@Size(min = 0, max = 100, message = "Valor expresado en %, no debe ser mayor a 100") @DecimalMin(value = "0.00", inclusive = false) Double iVA,
+				@DecimalMin(value = "0.00", inclusive = false, message = "El valor debe ser positivo.") Double tasaAeroportuariaNacional,
+				@DecimalMin(value = "0.00", inclusive = false, message = "El valor debe ser positivo.") Double tasaAeroportuariaInternacional,
+				@DecimalMin(value = "0.00", inclusive = false, message = "El valor debe ser positivo.") Double cotizacionDolar) {
 			super();
-			this.id = id;
-			IVA = iVA;
+			this.idTasas = id;
+			this.IVA = iVA;
 			this.tasaAeroportuariaNacional = tasaAeroportuariaNacional;
 			this.tasaAeroportuariaInternacional = tasaAeroportuariaInternacional;
 			this.cotizacionDolar = cotizacionDolar;
@@ -53,42 +53,42 @@ public class Tasas {
 		// Getters y setters
 		
 		public Long getId() {
-			return id;
+			return idTasas;
 		}
 
 		public void setId(Long id) {
-			this.id = id;
+			this.idTasas = id;
 		}
 
-		public int getIVA() {
+		public Double getIVA() {
 			return IVA;
 		}
 
-		public void setIVA(int iVA) {
+		public void setIVA(Double iVA) {
 			IVA = iVA;
 		}
 
-		public int getTasaAeroportuariaNacional() {
+		public Double getTasaAeroportuariaNacional() {
 			return tasaAeroportuariaNacional;
 		}
 
-		public void setTasaAeroportuariaNacional(int tasaAeroportuariaNacional) {
+		public void setTasaAeroportuariaNacional(Double tasaAeroportuariaNacional) {
 			this.tasaAeroportuariaNacional = tasaAeroportuariaNacional;
 		}
 
-		public int getTasaAeroportuariaInternacional() {
+		public Double getTasaAeroportuariaInternacional() {
 			return tasaAeroportuariaInternacional;
 		}
 
-		public void setTasaAeroportuariaInternacional(int tasaAeroportuariaInternacional) {
+		public void setTasaAeroportuariaInternacional(Double tasaAeroportuariaInternacional) {
 			this.tasaAeroportuariaInternacional = tasaAeroportuariaInternacional;
 		}
 
-		public int getCotizacionDolar() {
+		public Double getCotizacionDolar() {
 			return cotizacionDolar;
 		}
 
-		public void setCotizacionDolar(int cotizacionDolar) {
+		public void setCotizacionDolar(Double cotizacionDolar) {
 			this.cotizacionDolar = cotizacionDolar;
 		}
 	    
