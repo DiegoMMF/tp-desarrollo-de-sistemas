@@ -21,8 +21,10 @@ import java.util.List;
 @Controller
 @RequestMapping("/clienteBuscar")
 public class ClienteBuscarController {
+
     @Autowired
     private ClienteService service;
+
     @Autowired
     private CiudadService serviceCiudad;
 

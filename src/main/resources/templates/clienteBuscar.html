@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
 <head>
     <title><span th:text="#{cliente.buscar.titulo}"></span></title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
@@ -11,7 +11,6 @@
     <h1><span th:text="#{empresa}"/></h1>
     <h2>
         <span th:text="#{cliente.buscar.titulo}"></span>
-
     </h2>
 </div>
 
@@ -22,14 +21,12 @@
         <tr>
             <td><label th:text="#{cliente.dni}"/></td>
             <td><input type="number" th:field="*{dni}"/>
-
             </td>
 
         </tr>
-        <!--<tr>
+        <tr>
           <td><label th:text="#{cliente.nombre}" /></td>
           <td><input type="text" th:field="*{nombre}" /></td>
-
         </tr>
         <tr>
           <td><label th:text="#{cliente.ciudad}" /></td>
@@ -41,7 +38,7 @@
                       th:text="${c.nombre}"></option>
             </select>
           </td>
-        </tr>-->
+        </tr>
     </table>
     <table class="botones">
 
