@@ -42,13 +42,13 @@ public class ClienteBuscarController {
     }
 
     @RequestMapping( method=RequestMethod.POST)
-    public String submit(@ModelAttribute("formBean")  @Valid ClienteBuscarForm formBean, BindingResult result, ModelMap modelo, @RequestParam String action) {
-
-
-        if(action.equals("Buscar"))
-        {
-
-
+    public String submit(
+            @ModelAttribute("formBean")  @Valid ClienteBuscarForm formBean,
+            BindingResult result,
+            ModelMap modelo,
+            @RequestParam String action
+    ) {
+        if (action.equals("Buscar")) {
             try {
                 List<Cliente> clientes = service.filter(formBean);
                 modelo.addAttribute("resultados", clientes);

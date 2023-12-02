@@ -7,7 +7,7 @@ public class ClienteBuscarForm {
     private Long IdCiudadSeleccionada;
 
     public Long getDni() {
-        if(dni!=null && dni>0)
+        if (dni != null && dni > 0)
             return dni;
         else
             return null;

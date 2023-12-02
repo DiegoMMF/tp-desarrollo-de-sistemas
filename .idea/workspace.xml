@@ -5,40 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a7e0fa7c-2fff-46bd-ac47-b58f1a758590" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/tuti/desi/presentacion/ciudades/CiudadEditarController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/tuti/desi/presentacion/clientes/ClienteBuscarController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/tuti/desi/presentacion/clientes/ClienteBuscarForm.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/tuti/desi/presentacion/clientes/ClienteEditarController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/tuti/desi/presentacion/clientes/ClienteForm.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/ciudadEditar.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/clienteBuscar.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/clienteEditar.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/tuti/desi/presentacion/reservas/ReservaController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/tuti/desi/presentacion/reservas/ReservaForm.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/reserva.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tuti/desi/accesoDatos/ICiudadRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tuti/desi/accesoDatos/ICiudadRepo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tuti/desi/accesoDatos/IClienteRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tuti/desi/accesoDatos/IClienteRepo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tuti/desi/accesoDatos/IProvinciaRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tuti/desi/accesoDatos/IProvinciaRepo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tuti/desi/entidades/Ciudad.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tuti/desi/entidades/Ciudad.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tuti/desi/entidades/Cliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tuti/desi/entidades/Cliente.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tuti/desi/entidades/Provincia.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tuti/desi/entidades/Provincia.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tuti/desi/presentacion/CiudadForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tuti/desi/presentacion/ciudades/CiudadForm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tuti/desi/presentacion/CiudadesBuscarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tuti/desi/presentacion/ciudades/CiudadesBuscarController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tuti/desi/presentacion/CiudadesBuscarForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tuti/desi/presentacion/ciudades/CiudadesBuscarForm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tuti/desi/presentacion/VueloABMController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tuti/desi/presentacion/VueloABMController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tuti/desi/presentacion/clientes/ClienteEditController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tuti/desi/presentacion/clientes/ClienteEditForm.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tuti/desi/presentacion/clientes/ClienteSearchController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tuti/desi/presentacion/clientes/ClienteSearchForm.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tuti/desi/servicios/CiudadService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tuti/desi/servicios/ciudades/CiudadService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tuti/desi/servicios/CiudadServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tuti/desi/servicios/ciudades/CiudadServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tuti/desi/servicios/ProvinciaService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tuti/desi/servicios/ciudades/ProvinciaService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tuti/desi/servicios/ProvinciaServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tuti/desi/servicios/ciudades/ProvinciaServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tuti/desi/servicios/VueloService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tuti/desi/servicios/VueloService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tuti/desi/servicios/clientes/ClienteService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tuti/desi/servicios/clientes/ClienteService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tuti/desi/servicios/clientes/ClienteServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tuti/desi/servicios/clientes/ClienteServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/messages.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/messages.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/messages_en_US.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/messages_en_US.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/ciudadesBuscar.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/ciudadesBuscar.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tuti/desi/entidades/Vuelo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tuti/desi/entidades/Vuelo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tuti/desi/presentacion/clientes/ClienteBuscarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tuti/desi/presentacion/clientes/ClienteBuscarController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tuti/desi/presentacion/clientes/ClienteBuscarForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tuti/desi/presentacion/clientes/ClienteBuscarForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/clienteBuscar.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/clienteBuscar.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -50,8 +24,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="Class" />
         <option value="HTML File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
