@@ -20,70 +20,64 @@ import tuti.desi.excepciones.Excepcion;
 import tuti.desi.servicios.CiudadService;
 import tuti.desi.servicios.ProvinciaService;
 
-
 @Controller
 @RequestMapping("/ciudadesBuscar")
 public class CiudadesBuscarController {
 	@Autowired
-    private ProvinciaService servicioProvincia;
-   
+	private ProvinciaService servicioProvincia;
+
 	@Autowired
-    private CiudadService servicioCiudad;
-   
-	
-    @RequestMapping(method=RequestMethod.GET)
-    public String preparaForm(Model modelo) {
-    	CiudadesBuscarForm form =  new CiudadesBuscarForm();
+	private CiudadService servicioCiudad;
+
+	@RequestMapping(method = RequestMethod.GET)
+	public String preparaForm(Model modelo) {
+		CiudadesBuscarForm form = new CiudadesBuscarForm();
 //    	 form.setProvincias(servicioProvincia.getAll());    //  en lugar de esto hacemos @ModelAttribute("allProvincias")
-       modelo.addAttribute("formBean",form);
-       return "ciudadesBuscar";
-    }
-     
-    
-    /**
-     * @return
-     */
-    @ModelAttribute("allProvincias")
-    public List<Provincia> getAllProvincias() {
-        return this.servicioProvincia.getAll();
-    }
-    
-    @RequestMapping( method=RequestMethod.POST)
-    public String submit( @ModelAttribute("formBean") @Valid CiudadesBuscarForm  formBean,BindingResult result, ModelMap modelo,@RequestParam String action) throws Excepcion {
-    	
-    	
-    	if(action.equals("Buscar"))
-    	{
-    		
-    		try {
-    			List<Ciudad> ciudades = servicioCiudad.filter(formBean);
-    			modelo.addAttribute("resultados",ciudades);
+		modelo.addAttribute("formBean", form);
+		return "ciudadesBuscar";
+	}
+
+	/**
+	 * @return
+	 */
+	@ModelAttribute("allProvincias")
+	public List<Provincia> getAllProvincias() {
+		return this.servicioProvincia.getAll();
+	}
+
+	@RequestMapping(method = RequestMethod.POST)
+	public String submit(@ModelAttribute("formBean") @Valid CiudadesBuscarForm formBean, BindingResult result,
+			ModelMap modelo, @RequestParam String action) throws Excepcion {
+
+		if (action.equals("Buscar"))// B U S C A R
+		{
+
+			try {
+				List<Ciudad> ciudades = servicioCiudad.filter(formBean);
+				modelo.addAttribute("resultados", ciudades);
 			} catch (Exception e) {
 				ObjectError error = new ObjectError("globalError", e.getMessage());
-	            result.addError(error);
+				result.addError(error);
 			}
-    		
-    		modelo.addAttribute("formBean",formBean);
-        	return "ciudadesBuscar";
-    	}
-    
-    	
-    	if(action.equals("Cancelar"))
-    	{
-    		modelo.clear();
-    		return "redirect:/";
-    	}
-    	
-    	if(action.equals("Registrar"))
-    	{
-    		modelo.clear();
-    		return "redirect:/ciudadEditar";
-    	}
-    		
-    	return "redirect:/";
-    	
-    	
-    }
 
- 
+			modelo.addAttribute("formBean", formBean);
+			return "ciudadesBuscar";
+		}
+
+		if (action.equals("Cancelar"))// C A N C E L A R
+		{
+			modelo.clear();
+			return "redirect:/";
+		}
+
+		if (action.equals("Registrar"))// R E G I S T R A R
+		{
+			modelo.clear();
+			return "redirect:/ciudadEditar";
+		}
+
+		return "redirect:/";
+
+	}
+
 }

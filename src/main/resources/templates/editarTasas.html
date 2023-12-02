@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Tasas</title>
+</head>
+<body>
+    <form action="#" th:action="@{/tasasSet/editar/{id}}" th:object="${tasa}" method="post">
+        <h2>Editar Tasas</h2>
+        <label for="iva">IVA:</label>
+        <input type="text" id="iva" name="iva" th:field="*{iva}" th:required="required">
+
+        <label for="tasaAeroportuariaInternacional">Tasa Aeroportuaria Internacional:</label>
+        <input type="text" id="tasaAeroportuariaInternacional" name="tasaAeroportuariaInternacional" th:field="*{tasaAeroportuariaInternacional}" th:required="required">
+
+        <label for="tasaAeroportuariaNacional">Tasa Aeroportuaria Nacional:</label>
+        <input type="text" id="tasaAeroportuariaNacional" name="tasaAeroportuariaNacional" th:field="*{tasaAeroportuariaNacional}" th:required="required">
+
+        <label for="cotizacionDolar">Cotización del Dólar:</label>
+        <input type="text" id="cotizacionDolar" name="cotizacionDolar" th:field="*{cotizacionDolar}" th:required="required">
+
+        <button type="submit">Guardar Cambios</button>
+    </form>
+</body>
+</html>
