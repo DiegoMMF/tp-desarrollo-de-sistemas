@@ -2,74 +2,66 @@ package tuti.desi.entidades;
 
 import jakarta.persistence.*;
 
-import java.time.LocalDateTime;
+import java.util.Date;
 
 @Entity
 public class Cliente {
-	
-	@Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(
-			name = "customer_id",
-			nullable = false,
-			unique = true
-	)
-    private Long customerId;
+    @Id
+    private Long dni;
 
-	@Column(nullable = false, unique = true)
-	private Long dni;
+    private String nombre;
 
-	@Column
-	private String name;
+    private String apellido;
 
-	@Column
-	private String address;
+    private Date fechaNacimiento;
 
-	@Column(nullable = false, unique = true)
-	private String email;
+    /**
+     * Propiedad utilizada por la capa de presentación para saber si es una entidad ya persistida (y la estoy
+     * actualizando), o si es nueva. Ya que si el ID es ingresado por el usuario, no puede ser usado como criterio
+     * para saber si fue persistida o no.
+     */
+    @Transient
+    private Boolean editando=false;
 
-	@Column(name = "phone_number")
-	private Long phoneNumber;
+    @ManyToOne
+    private Ciudad ciudad;
 
-	@Column(
-			name = "birth_date",
-			columnDefinition = "DATE",
-			nullable = false
-	)
-	private LocalDateTime birthDate;
+    // Getters y setters
+    public Long getDni() {
+        return dni;
+    }
+    public void setDni(Long dni) {
+        this.dni = dni;
+    }
+    public Date getFechaNacimiento() {
+        return fechaNacimiento;
+    }
+    public void setFechaNacimiento(Date fechaNacimiento) {
+        this.fechaNacimiento = fechaNacimiento;
+    }
 
-	@Column(name = "passport_number")
-	private String passportNumber;
-
-	public Cliente() {}
-
-	public Cliente(Long dni, String name, String address, String email, Long phoneNumber, LocalDateTime birthDate, String passportNumber) {
-		this.dni = dni;
-		this.name = name;
-		this.address = address;
-		this.email = email;
-		this.phoneNumber = phoneNumber;
-		this.birthDate = birthDate;
-		this.passportNumber = passportNumber;
-	}
-
-	// Getters
-	public Long getCustomerId() { return customerId; }
-	public Long getDni() { return dni; }
-	public String getName() { return name; }
-	public String getAddress() { return address; }
-	public String getEmail() { return email; }
-	public Long getPhoneNumber() { return phoneNumber; }
-	public LocalDateTime getBirthDate() { return birthDate; }
-	public String getPassportNumber() { return passportNumber; }
-
-	// Setters
-	public void setCustomerId(Long customerId) { this.customerId = customerId; }
-	public void setDni(Long dni) { this.dni = dni; }
-	public void setName(String name) { this.name = name; }
-	public void setAddress(String address) { this.address = address; }
-	public void setEmail(String email) { this.email = email; }
-	public void setPhoneNumber(Long phoneNumber) { this.phoneNumber = phoneNumber; }
-	public void setBirthDate(LocalDateTime birthDate) { this.birthDate = birthDate; }
-	public void setPassportNumber(String passportNumber) { this.passportNumber = passportNumber; }
+    public String getNombre() {
+        return nombre;
+    }
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+    public Ciudad getCiudad() {
+        return ciudad;
+    }
+    public void setCiudad(Ciudad ciudad) {
+        this.ciudad = ciudad;
+    }
+    public String getApellido() {
+        return apellido;
+    }
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
+    }
+    public Boolean getEditando() {
+        return editando;
+    }
+    public void setEditando(Boolean editando) {
+        this.editando = editando;
+    }
 }

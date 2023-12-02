@@ -4,13 +4,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
-import tuti.desi.entidades.Avion;
 import tuti.desi.entidades.Vuelo;
 import tuti.desi.presentacion.VueloForm;
 import tuti.desi.accesoDatos.IVueloRepo;
-import tuti.desi.servicios.AvionService;
-import tuti.desi.servicios.CiudadService;
+import tuti.desi.servicios.ciudades.CiudadService;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -20,6 +19,8 @@ public class VueloService implements VueloServiceI {
     private final IVueloRepo vueloRepo;
     private final AvionService avionService;
     private final CiudadService ciudadService;
+    
+    
 
     @Autowired
     public VueloService(IVueloRepo vueloRepositorio, AvionService avionService, CiudadService ciudadService) {
@@ -27,7 +28,12 @@ public class VueloService implements VueloServiceI {
         this.avionService = avionService;
         this.ciudadService = ciudadService;
     }
-
+    
+    @Override
+    public List<Vuelo> obtenerVuelosPorFecha(LocalDateTime localDateTime) {
+        return vueloRepo.findByFechaHoraPartida(localDateTime);
+    }
+    
     @Override
     public List<Vuelo> obtenerTodosLosVuelos() {
         return vueloRepo.findAll();
@@ -78,6 +84,17 @@ public class VueloService implements VueloServiceI {
                 vuelo.setOrigen(ciudadService.getById(vueloForm.getId_origen()));
                 vuelo.setPrecioPasaje(vueloForm.getPrecioPasaje());
                 vuelo.setTipoVuelo(vueloForm.getTipoVuelo());
+            //     for(int x=0; x<vuelo.getAvion().getCantFilas(); x++) {
+         	// 	   for(int j=0; j<vuelo.getAvion().getAsientosPorFila(); j++) {
+         	// 		   Asiento asiento = new Asiento();
+         	// 		   asiento.setVuelo(vuelo);
+         	// 		   asiento.setFila(x);
+         	// 		   asiento.setColumna(j);
+         	// 		   asiento.setCliente(null);
+         	// 		   vuelo.addAsiento(asiento);
+         	// 	   }
+         	//    }
+               vuelo.setCantidadDeAsientos(vuelo.getAvion().getCantFilas()*vuelo.getAvion().getAsientosPorFila());
 
                 System.out.println("Guardando nuevo vuelo: " + vuelo);
                 return vueloRepo.save(vuelo);
