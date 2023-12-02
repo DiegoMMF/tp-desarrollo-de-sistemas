@@ -4,15 +4,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
-import tuti.desi.entidades.Asiento;
-import tuti.desi.entidades.Avion;
 import tuti.desi.entidades.Vuelo;
 import tuti.desi.presentacion.VueloForm;
 import tuti.desi.accesoDatos.IVueloRepo;
-import tuti.desi.servicios.AvionService;
-import tuti.desi.servicios.CiudadService;
+import tuti.desi.servicios.ciudades.CiudadService;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;

@@ -2,7 +2,7 @@
  * @author kuttel
  *
  */
-package tuti.desi.servicios;
+package tuti.desi.servicios.ciudades;
 
 import java.util.List;
 
@@ -12,18 +12,19 @@ import org.springframework.stereotype.Service;
 import tuti.desi.accesoDatos.ICiudadRepo;
 import tuti.desi.entidades.Ciudad;
 import tuti.desi.excepciones.Excepcion;
-import tuti.desi.presentacion.CiudadesBuscarForm;
+import tuti.desi.presentacion.ciudades.CiudadesBuscarForm;
+import tuti.desi.servicios.ciudades.CiudadService;
 
 @Service
 public class CiudadServiceImpl implements CiudadService {
-//	Logger LOG = LoggerFactory.getLogger(CiudadService.class);
+	//	Logger LOG = LoggerFactory.getLogger(CiudadService.class);
 //	
 	@Autowired
 	ICiudadRepo repo;
 
 	@Override
 	public List<Ciudad> getAll() {
-		
+
 		return repo.findAll();
 	}
 
@@ -35,7 +36,7 @@ public class CiudadServiceImpl implements CiudadService {
 
 		return repo.findById(idCiudad).get();
 	}
-	
+
 	@Override
 	public List<Ciudad> filter(CiudadesBuscarForm filter) throws Excepcion
 	{
@@ -45,7 +46,7 @@ public class CiudadServiceImpl implements CiudadService {
 			throw new Excepcion("Es necesario al menos un filtro");
 		else
 			return repo.findByNombreOrIdProvincia(filter.getNombre(),filter.getProvinciaSeleccionada());
-				
+
 	}
 
 
@@ -53,7 +54,7 @@ public class CiudadServiceImpl implements CiudadService {
 	@Override
 	public void deleteByid(Long id) {
 		repo.deleteById(id);
-		
+
 	}
 
 
@@ -61,10 +62,10 @@ public class CiudadServiceImpl implements CiudadService {
 	@Override
 	public void save(Ciudad c) throws Excepcion {
 		if(c.getId()==null && !repo.findByNombreAndIdProvincia(c.getNombre(), c.getProvincia().getId()).isEmpty()) //estoy dando de alta una nueva ciudad y ya existe una igual?
-			throw new Excepcion("Ya existe una ciudad con el mismo nombre, para la misma provincia");  
+			throw new Excepcion("Ya existe una ciudad con el mismo nombre, para la misma provincia");
 		else
 			repo.save(c);
-		
+
 	}
 
 }

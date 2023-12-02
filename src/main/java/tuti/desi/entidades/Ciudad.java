@@ -8,18 +8,17 @@ import jakarta.persistence.ManyToOne;
 
 @Entity
 public class Ciudad {
-	
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
+
 	private String nombre;
-	
+
 	@ManyToOne
 	private Provincia provincia;
-	
-	
+
+	// Getters y setters
 	public Long getId() {
 		return id;
 	}
@@ -38,6 +37,4 @@ public class Ciudad {
 	public void setProvincia(Provincia provincia) {
 		this.provincia = provincia;
 	}
-	
-	
 }

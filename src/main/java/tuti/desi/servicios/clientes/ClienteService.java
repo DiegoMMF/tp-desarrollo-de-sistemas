@@ -1,27 +1,30 @@
 package tuti.desi.servicios.clientes;
 
 import tuti.desi.entidades.Cliente;
+import tuti.desi.excepciones.Excepcion;
+import tuti.desi.presentacion.clientes.ClienteBuscarForm;
 
 import java.util.List;
 
 public interface ClienteService {
-    List<Cliente> findAll();
-    List<Cliente> findByDni(Long dni);
+
+    List<Cliente> getAll();
+
+    List<Cliente> filter(ClienteBuscarForm filter) throws Excepcion;
 
     /**
-     * Si el cliente existe lo editará, si no la creará en BD
+     * Si la cliente existe la actualizará, si no la creará en BD
      * @param cliente cliente a guardar
-     * @throws Exception ante un error
      */
-    void save(Cliente cliente) throws Exception;
+    void save(Cliente cliente) throws Excepcion;
 
     /**
      * Permite obtener un cliente determinado
-     * @param dni identificador del cliente buscado
-     * @return cliente encontrado o null si no encontró el cliente
+     * @param idCliente identificador del cliente buscado
+     * @return cliente o null dependiendo de si fue encontrado o no
      * @throws Exception ante un error
      */
-    Cliente getClienteByDni(Long dni) throws Exception;
+    Cliente getClienteById(Long idCliente) throws Exception;
 
-    void deleteClienteByDni(Long dni);
+    void deleteClienteById(Long id);
 }

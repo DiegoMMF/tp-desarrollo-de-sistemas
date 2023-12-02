@@ -10,18 +10,16 @@ import jakarta.persistence.OneToMany;
 
 @Entity
 public class Provincia {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
-	
+
 	private String nombre;
-	
+
 	@OneToMany(mappedBy = "provincia")
 	private List<Ciudad> ciudades;
-	
-	
+
 	public Long getId() {
 		return id;
 	}
@@ -34,5 +32,4 @@ public class Provincia {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-	
 }

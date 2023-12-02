@@ -5,7 +5,41 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a7e0fa7c-2fff-46bd-ac47-b58f1a758590" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/tuti/desi/presentacion/ciudades/CiudadEditarController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/tuti/desi/presentacion/clientes/ClienteBuscarController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/tuti/desi/presentacion/clientes/ClienteBuscarForm.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/tuti/desi/presentacion/clientes/ClienteEditarController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/tuti/desi/presentacion/clientes/ClienteForm.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/ciudadEditar.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/clienteBuscar.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/clienteEditar.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tuti/desi/accesoDatos/ICiudadRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tuti/desi/accesoDatos/ICiudadRepo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tuti/desi/accesoDatos/IClienteRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tuti/desi/accesoDatos/IClienteRepo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tuti/desi/accesoDatos/IProvinciaRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tuti/desi/accesoDatos/IProvinciaRepo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tuti/desi/entidades/Ciudad.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tuti/desi/entidades/Ciudad.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tuti/desi/entidades/Cliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tuti/desi/entidades/Cliente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tuti/desi/entidades/Provincia.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tuti/desi/entidades/Provincia.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tuti/desi/presentacion/CiudadForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tuti/desi/presentacion/ciudades/CiudadForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tuti/desi/presentacion/CiudadesBuscarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tuti/desi/presentacion/ciudades/CiudadesBuscarController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tuti/desi/presentacion/CiudadesBuscarForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tuti/desi/presentacion/ciudades/CiudadesBuscarForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tuti/desi/presentacion/VueloABMController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tuti/desi/presentacion/VueloABMController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tuti/desi/presentacion/clientes/ClienteEditController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tuti/desi/presentacion/clientes/ClienteEditForm.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tuti/desi/presentacion/clientes/ClienteSearchController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tuti/desi/presentacion/clientes/ClienteSearchForm.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tuti/desi/servicios/CiudadService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tuti/desi/servicios/ciudades/CiudadService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tuti/desi/servicios/CiudadServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tuti/desi/servicios/ciudades/CiudadServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tuti/desi/servicios/ProvinciaService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tuti/desi/servicios/ciudades/ProvinciaService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tuti/desi/servicios/ProvinciaServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tuti/desi/servicios/ciudades/ProvinciaServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tuti/desi/servicios/VueloService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tuti/desi/servicios/VueloService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tuti/desi/servicios/clientes/ClienteService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tuti/desi/servicios/clientes/ClienteService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tuti/desi/servicios/clientes/ClienteServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tuti/desi/servicios/clientes/ClienteServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/messages.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/messages.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/messages_en_US.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/messages_en_US.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/ciudadesBuscar.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/ciudadesBuscar.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,6 +51,7 @@
       <list>
         <option value="Interface" />
         <option value="Class" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -39,18 +74,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Diego&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
+    "git-widget-placeholder": "Diego",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="Desi2023Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="tuti.desi.Desi2023Application" />
@@ -104,5 +140,9 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="compilando" />
     <option name="LAST_COMMIT_MESSAGE" value="compilando" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

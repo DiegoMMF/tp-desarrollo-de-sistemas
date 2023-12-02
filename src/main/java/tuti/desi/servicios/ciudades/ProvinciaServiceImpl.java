@@ -2,7 +2,7 @@
  * @author kuttel
  *
  */
-package tuti.desi.servicios;
+package tuti.desi.servicios.ciudades;
 
 import java.util.List;
 
@@ -14,7 +14,7 @@ import tuti.desi.entidades.Provincia;
 
 @Service
 public class ProvinciaServiceImpl implements ProvinciaService {
-//	Logger LOG = LoggerFactory.getLogger(CiudadService.class);
+	//	Logger LOG = LoggerFactory.getLogger(CiudadService.class);
 //	
 	@Autowired
 	IProvinciaRepo repo;

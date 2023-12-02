@@ -1,4 +1,4 @@
-package tuti.desi.servicios;
+package tuti.desi.servicios.ciudades;
 
 
 import java.util.List;
@@ -12,15 +12,14 @@ import tuti.desi.entidades.Provincia;
 
 public interface ProvinciaService {
 
-	
+
 
 	/**
 	 * Obtiene la lista completa de Provincias
 	 * @return Todas las Provincias
 	 */
-	@Deprecated
 	List<Provincia> getAll();
-	
+
 	/**
 	 * Obtiene una Provincia determinada
 	 * @param idCiudad Identificador de la Provincia buscada
