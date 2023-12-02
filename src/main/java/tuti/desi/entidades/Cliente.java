@@ -9,11 +9,7 @@ public class Cliente {
 	
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(
-			name = "customer_id",
-			nullable = false,
-			unique = true
-	)
+	@Column(name = "id", nullable = false, unique = true)
     private Long customerId;
 
 	@Column(nullable = false, unique = true)
@@ -31,11 +27,7 @@ public class Cliente {
 	@Column(name = "phone_number")
 	private Long phoneNumber;
 
-	@Column(
-			name = "birth_date",
-			columnDefinition = "DATE",
-			nullable = false
-	)
+	@Column(name = "birth_date", columnDefinition = "DATE", nullable = false)
 	private LocalDateTime birthDate;
 
 	@Column(name = "passport_number")
