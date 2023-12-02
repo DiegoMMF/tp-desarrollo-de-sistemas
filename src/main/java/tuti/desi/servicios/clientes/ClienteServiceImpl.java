@@ -32,35 +32,33 @@ public class ClienteServiceImpl implements ClienteService {
 
     @Override
     public void save(Cliente cliente) throws Excepcion {
-
-        GregorianCalendar gc =new GregorianCalendar();
+        GregorianCalendar gc = new GregorianCalendar();
         gc.set(Calendar.YEAR, 2000);
         gc.set(Calendar.DATE, 1);
         gc.set(Calendar.MONTH, 1);
 
-        if(cliente.getDni()<35000000 && cliente.getFechaNacimiento().after(gc.getTime()))
-            throw new Excepcion("El dni no corresponde a la fecha de nacimiento indicada");  //error global mostrado arriba
-        else if(!cliente.getEditando() && clienteRepository.existsById(cliente.getDni()))
-            throw new Excepcion("El dni ya se encuentra asociado a otra cliente", "dni");  //error asociado al campo dni
+        if (cliente.getDni() < 35000000 && cliente.getFechaNacimiento().after(gc.getTime()))
+            // error global mostrado arriba
+            throw new Excepcion("El dni no corresponde a la fecha de nacimiento indicada");
+        else if (!cliente.getEditando() && clienteRepository.existsById(cliente.getDni()))
+            // error asociado al campo dni
+            throw new Excepcion("El dni ya se encuentra asociado a otro cliente", "dni");
         else
             clienteRepository.save(cliente);
-
     }
 
     @Override
-    public Cliente getClienteById(Long idCliente) throws Exception {
-
+    public Cliente getClienteByDni(Long idCliente) throws Exception {
         Optional<Cliente> p = clienteRepository.findById(idCliente);
-
-        if(p!=null) {
+        if (p.isPresent()) {
             return p.get();
         } else {
-            throw new Exception("No existe el cliente con el id="+idCliente);
+            throw new Exception("No existe el cliente con el id=" + idCliente);
         }
     }
 
     @Override
-    public void deleteClienteById(Long id) {
+    public void deleteClienteByDni(Long id) {
         clienteRepository.deleteById(id);
     }
 }

@@ -5,15 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a7e0fa7c-2fff-46bd-ac47-b58f1a758590" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/reservas/crearCliente.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/reservas/reservarVuelo.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tuti/desi/accesoDatos/IClienteRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tuti/desi/accesoDatos/IClienteRepo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tuti/desi/entidades/Cliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tuti/desi/entidades/Cliente.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/tuti/desi/presentacion/clientes/ClienteBuscarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tuti/desi/presentacion/clientes/ClienteBuscarController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tuti/desi/presentacion/clientes/ClienteBuscarForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tuti/desi/presentacion/clientes/ClienteBuscarForm.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/tuti/desi/presentacion/clientes/ClienteEditarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tuti/desi/presentacion/clientes/ClienteEditarController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tuti/desi/presentacion/clientes/ClienteForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tuti/desi/presentacion/clientes/ClienteForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tuti/desi/servicios/clientes/ClienteService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tuti/desi/servicios/clientes/ClienteService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/tuti/desi/servicios/clientes/ClienteServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tuti/desi/servicios/clientes/ClienteServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/ingresarDNI.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/reservas/ingresarDNI.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/clienteEditar.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/reservas/ingresarDNI.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/reservas/seleccionarCliente.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,8 +25,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="HTML File" />
         <option value="Class" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>

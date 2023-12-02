@@ -14,7 +14,7 @@ import tuti.desi.servicios.clientes.ClienteService;
 import java.util.List;
 
 @Controller
-@RequestMapping("/ingresar-dni")
+@RequestMapping("/reservas/seleccionar-cliente")
 public class ClienteBuscarController {
 
     @Autowired
@@ -28,7 +28,7 @@ public class ClienteBuscarController {
         // form.setCiudades(serviceCiudad.getAll());
         // en lugar de la línea anterior, hacemos @ModelAttribute("allCiudades")
         modelo.addAttribute("formBean", form);
-        return "reservas/ingresarDNI";
+        return "reservas/seleccionarCliente";
     }
 
     @PostMapping
@@ -42,12 +42,19 @@ public class ClienteBuscarController {
             try {
                 List<Cliente> clientes = service.filter(formBean);
                 modelo.addAttribute("resultados", clientes);
+                if (clientes.size() == 0) {
+                    ObjectError error = new ObjectError(
+                            "globalError",
+                            "No se encontraron clientes con ese DNI. Seleccione REGISTRAR."
+                    );
+                    result.addError(error);
+                }
             } catch (Exception e) {
                 ObjectError error = new ObjectError("globalError", e.getMessage());
                 result.addError(error);
             }
             modelo.addAttribute("formBean", formBean);
-            return "reservas/ingresarDNI";
+            return "reservas/seleccionarCliente";
         }
         if (action.equals("Cancelar")) {
             modelo.clear();
@@ -55,7 +62,7 @@ public class ClienteBuscarController {
         }
         if(action.equals("Registrar")) {
             modelo.clear();
-            return "redirect:/clienteEditar";
+            return "reservas/crearCliente";
         }
         return "redirect:/";
     }

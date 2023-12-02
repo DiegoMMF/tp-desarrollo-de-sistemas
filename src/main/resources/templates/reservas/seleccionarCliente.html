@@ -8,7 +8,7 @@
 <body>
 <h1>RESERVAS</h1>
 <h3>Ingrese DNI del Cliente para Reservar un Vuelo</h3>
-<form th:action="@{/ingresar-dni}" th:object="${formBean}" method="post">
+<form th:action="@{/reservas/seleccionar-cliente}" th:object="${formBean}" method="post">
     <p th:each="err : ${#fields.errors('global')}" th:text="${err}" class="error"></p>
     <div>
         <label th:text="#{cliente.dni}"></label>
@@ -20,6 +20,7 @@
     <div class="botones">
         <input type="submit" name="action" value="Buscar"/>
         <input type="submit" name="action" value="Cancelar"/>
+        <input type="submit" name="action" value="Registrar"/>
     </div>
     <table class="resultados">
         <thead>
@@ -30,6 +31,7 @@
             <th>Email</th>
             <th>Fecha de Nacimiento</th>
             <th>Nro Pasaporte</th>
+            <th>Acciones</th>
         </tr>
         </thead>
         <tbody>
@@ -41,16 +43,10 @@
             <td th:text="${{p.fechaNacimiento}}"></td>
             <td th:text="${{p.pasaporte}}"></td>
             <td>
-                <a th:href="@{/clienteEditar/{id}(id=${p.dni})}" class="btn btn-primary">
-                    editar
+                <a th:href="@{/reservas/{dni}(dni=${p.dni})}" class="btn btn-primary">
+                    Elegir
                 </a>
             </td>
-            <td>
-                <a th:href="@{/clienteEditar/delete/{id}(id=${p.dni})}" class="btn btn-primary">
-                    eliminar
-                </a>
-            </td>
-
         </tr>
         </tbody>
     </table>

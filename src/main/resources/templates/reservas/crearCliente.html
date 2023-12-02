@@ -1,0 +1,83 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<head>
+  <title><span th:text="#{cliente.editar.titulo}"/></title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" th:href="@{/css/main.css}"/>
+</head>
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
+
+<script>
+    $(document).ready(function(){
+      var date_input=$('input[name="fechaNacimiento"]');
+      var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
+      var options={
+        format: 'dd/mm/yyyy',
+        container: container,
+        todayHighlight: true,
+        autoclose: true,
+      };
+      date_input.datepicker(options);
+    })
+</script>
+<body>
+<div class="starter-template">
+    <h1><span th:text="#{empresa}"></span></h1>
+    <h2 th:text="${formBean.dni} ? #{cliente.editar.titulo}: #{cliente.registrar.titulo}"></h2>
+</div>
+<form th:action="@{/reservas/crear-cliente}" th:object="${formBean}" method="post">
+    <p th:each="err : ${#fields.errors('global')}" th:text="${err}" class="error"></p>
+    <input type="hidden" id="editando" th:field="*{editando}">
+    <table style="align-self: center;">
+        <tr>
+            <td><label th:text="#{cliente.dni}"></label></td>
+            <div th:if="${formBean.editando}">
+                <td><label th:text="*{dni}"></label></td>
+                <input type="hidden" id="id" th:field="*{dni}">
+            </div>
+            <div th:if="${!formBean.editando}">
+                <td><label>
+                    <input type="number" th:field="*{dni}"/>
+                </label></td>
+            </div>
+            &lt;!&ndash;<td><p th:if="${#fields.hasErrors('dni')}" th:errorclass="error" th:errors="*{dni}"></p></td>&ndash;&gt;
+            <td>
+                <ul>
+                    <li th:each="err : ${#fields.errors('dni')}" th:text="${err}" class="error"></li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td><label th:text="#{cliente.nombre}"></label></td>
+            <td><label>
+                <input type="text" th:field="*{nombre}"/>
+            </label></td>
+            <td><p th:if="${#fields.hasErrors('nombre')}" th:errorclass="error" th:errors="*{nombre}"></p></td>
+        </tr>
+        <tr>
+            <td><label th:text="#{cliente.apellido}"></label></td>
+            <td><label>
+                <input type="text" th:field="*{apellido}"/>
+            </label></td>
+            <td><p th:if="${#fields.hasErrors('apellido')}" th:errorclass="error" th:errors="*{apellido}"></p></td>
+        </tr>
+        <tr>
+            <td><label th:text="#{cliente.f.nac}"></label></td>
+            <td><label for="fechaNacimiento"></label><input type="text" id="fechaNacimiento" autocomplete="off" th:field="*{fechaNacimiento}"
+                                                            placeholder="DD/MM/YYYY"/></td>
+            <td><p th:if="${#fields.hasErrors('fechaNacimiento')}" th:errorclass="error"
+                   th:errors="*{fechaNacimiento}"></p></td>
+        </tr>
+    </table>
+    <table class="botones">
+        <tr>
+            <td><input type="submit" name="action" value="Aceptar"/></td>
+            <td><input type="submit" name="action" value="Cancelar"/></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

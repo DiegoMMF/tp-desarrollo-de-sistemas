@@ -19,56 +19,49 @@ import java.util.List;
 import java.util.Optional;
 
 @Controller
-@RequestMapping("/clienteEditar")
+@RequestMapping("/reservas")
 public class ClienteEditarController {
+
     @Autowired
-    private ClienteService service;
-    @Autowired
-    private CiudadService serviceCiudad;
+    private ClienteService clienteService;
 
-    @RequestMapping(path = {"", "/{id}"}, method = RequestMethod.GET)
-    public String preparaForm(Model modelo, @PathVariable("id") Optional<Long> dni) throws Exception {
-        if (dni.isPresent()) {
-            Cliente entity = service.getClienteById(dni.get());
-            ClienteForm form = new ClienteForm(entity);
-            modelo.addAttribute("formBean", form);
-        } else {
-            modelo.addAttribute("formBean", new ClienteForm());
-        }
-        return "clienteEditar";
+    @GetMapping("/crear-cliente")
+    public String preparaForm(Model modelo) throws Exception {
+        ClienteForm form = new ClienteForm();
+        modelo.addAttribute("formBean", form);
+        return "reservas/crearCliente";
     }
 
-    @ModelAttribute("allCiudades")
-    public List<Ciudad> getAllCiudades() {
-        return this.serviceCiudad.getAll();
+    @GetMapping("/{dni}")
+    public String preparaForm(Model modelo, @PathVariable("dni") Long dni) throws Exception {
+        Cliente entity = clienteService.getClienteByDni(dni);
+        ClienteForm form = new ClienteForm(entity);
+        modelo.addAttribute("formBean", form);
+        return "reservas/reservarVuelo";
     }
 
-    @RequestMapping(path = "/delete/{id}", method = RequestMethod.GET)
-    public String deleteClienteById(Model model, @PathVariable("id") Long id) {
-        service.deleteClienteById(id);
-        return "redirect:/clientesBuscar";
+    @RequestMapping(path = "/delete/{dni}", method = RequestMethod.GET)
+    public String deleteClienteById(Model model, @PathVariable("dni") Long dni) {
+        clienteService.deleteClienteByDni(dni);
+        return "redirect:/";
     }
 
 
-    @RequestMapping(method = RequestMethod.POST)
-    public String submit(@ModelAttribute("formBean") @Valid ClienteForm formBean, BindingResult result, ModelMap modelo, @RequestParam String action) throws Exception {
-
+    @PostMapping
+    public String submit(
+            @ModelAttribute("formBean") @Valid ClienteForm formBean,
+            BindingResult result,
+            ModelMap modelo,
+            @RequestParam String action
+    ) throws Exception {
         if (action.equals("Aceptar")) {
-            /*
-            Para poner errores custom asociados a
-            FieldError error2 = new FieldError("formBean","dni","este es otro error.");
-            result.addError(error2);
-            ObjectError error = new ObjectError("globalError", "Aplicación en modo demo, no puede continuar");
-            result.addError(error);
-            */
-
             if (result.hasErrors()) {
                 modelo.addAttribute("formBean", formBean);
-                return "clienteEditar";
+                return "crearCliente";
             } else {
                 Cliente p = formBean.toPojo();
                 try {
-                    service.save(p);
+                    clienteService.save(p);
 
                     return "redirect:/clientesBuscar";
                 } catch (Excepcion e) {
@@ -81,7 +74,7 @@ public class ClienteEditarController {
                         result.addError(error1);
                     }
                     modelo.addAttribute("formBean", formBean);
-                    return "clienteEditar";//Como existe un error me quedo en la misma pantalla
+                    return "crearCliente";//Como existe un error me quedo en la misma pantalla
                 }
             }
         }
