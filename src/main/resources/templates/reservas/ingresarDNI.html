@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<head>
+    <title><span th:text="#{cliente.buscar.titulo}"></span></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" th:href="@{/css/main.css}"/>
+</head>
+<body>
+<h1>RESERVAS</h1>
+<h3>Ingrese DNI del Cliente para Reservar un Vuelo</h3>
+<form th:action="@{/ingresar-dni}" th:object="${formBean}" method="post">
+    <p th:each="err : ${#fields.errors('global')}" th:text="${err}" class="error"></p>
+    <div>
+        <label th:text="#{cliente.dni}"></label>
+        <label>
+            <input type="number" th:field="*{dni}"/>
+        </label>
+        <p th:each="err : ${#fields.errors('dni')}" th:text="${err}" class="error"></p>
+    </div>
+    <div class="botones">
+        <input type="submit" name="action" value="Buscar"/>
+        <input type="submit" name="action" value="Cancelar"/>
+    </div>
+    <table class="resultados">
+        <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Domicilio</th>
+            <th>Email</th>
+            <th>Fecha de Nacimiento</th>
+            <th>Nro Pasaporte</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="p : ${resultados}">
+            <td th:text="${{p.nombre}}"></td>
+            <td th:text="${{p.apellido}}"></td>
+            <td th:text="${{p.domicilio}}"></td>
+            <td th:text="${{p.email}}"></td>
+            <td th:text="${{p.fechaNacimiento}}"></td>
+            <td th:text="${{p.pasaporte}}"></td>
+            <td>
+                <a th:href="@{/clienteEditar/{id}(id=${p.dni})}" class="btn btn-primary">
+                    editar
+                </a>
+            </td>
+            <td>
+                <a th:href="@{/clienteEditar/delete/{id}(id=${p.dni})}" class="btn btn-primary">
+                    eliminar
+                </a>
+            </td>
+
+        </tr>
+        </tbody>
+    </table>
+</form>
+</body>
+</html>

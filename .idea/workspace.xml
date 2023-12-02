@@ -6,9 +6,14 @@
   <component name="ChangeListManager">
     <list default="true" id="a7e0fa7c-2fff-46bd-ac47-b58f1a758590" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tuti/desi/accesoDatos/IClienteRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tuti/desi/accesoDatos/IClienteRepo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tuti/desi/entidades/Cliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tuti/desi/entidades/Cliente.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/tuti/desi/presentacion/clientes/ClienteBuscarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tuti/desi/presentacion/clientes/ClienteBuscarController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/clienteBuscar.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/ingresarDNI.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tuti/desi/presentacion/clientes/ClienteBuscarForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tuti/desi/presentacion/clientes/ClienteBuscarForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tuti/desi/presentacion/clientes/ClienteEditarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tuti/desi/presentacion/clientes/ClienteEditarController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tuti/desi/presentacion/clientes/ClienteForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tuti/desi/presentacion/clientes/ClienteForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tuti/desi/servicios/clientes/ClienteServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tuti/desi/servicios/clientes/ClienteServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/ingresarDNI.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/reservas/ingresarDNI.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,6 +61,11 @@
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources/templates/reservas" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="Desi2023Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="tuti.desi.Desi2023Application" />

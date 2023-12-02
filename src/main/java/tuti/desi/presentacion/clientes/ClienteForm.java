@@ -11,67 +11,60 @@ import java.util.Date;
 /**
  * Objeto necesario para insertar o eliminar un cliente.
  * Nótese que en lugar de referenciar al objeto Ciudad, reemplaza ese atributo por el idCiudad, lo cual resulta mas sencillo de representar en JSON
- *
  */
 public class ClienteForm {
 
-    @NotNull(message = "el dni no puede ser nulo")
     @Min(value = 7000000, message = "el dni debe ser mayor a 7000000")
     private Long dni;
-    @NotNull
-    @Size(min=2, max=30, message = "el valor debe estar entre 2 y 30")
+    @Size(min = 2, max = 30, message = "el valor debe estar entre 2 y 30")
     private String apellido;
-    @NotNull
-    @Size(min=2, max=30)
+    @Size(min = 2, max = 30)
     private String nombre;
-    @NotNull
     private Long idCiudad;
     @DateTimeFormat(pattern = "dd/MM/yyyy")
     private Date fechaNacimiento;
-    private Boolean editando=false;
+    private Boolean editando = false;
 
     public ClienteForm() {
         super();
     }
+
     public ClienteForm(Cliente p) {
         super();
-        this.nombre=p.getNombre();
-        this.apellido=p.getApellido();
-        this.dni=p.getDni();
-        this.idCiudad=p.getCiudad().getId();
-        this.fechaNacimiento=p.getFechaNacimiento();
-        this.editando=true; //siempre que entre acá es porque estoy en modo edición
+        this.nombre = p.getNombre();
+        this.apellido = p.getApellido();
+        this.dni = p.getDni();
+        this.fechaNacimiento = p.getFechaNacimiento();
+        this.editando = true; //siempre que entre acá es porque estoy en modo edición
     }
+
     public Long getDni() {
         return dni;
     }
+
     public void setDni(Long dni) {
         this.dni = dni;
     }
+
     public String getApellido() {
         return apellido;
     }
+
     public void setApellido(String apellido) {
         this.apellido = apellido;
     }
+
     public String getNombre() {
         return nombre;
     }
+
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-    public Long getIdCiudad() {
-        return idCiudad;
-    }
-    public void setIdCiudad(Long idCiudad) {
-        this.idCiudad = idCiudad;
-    }
 
-    public Cliente toPojo()
-    {
+    public Cliente toPojo() {
         Cliente p = new Cliente();
-        if(!this.editando)
-        {
+        if (!this.editando) {
             p.setDni(this.getDni());
         }
         p.setApellido(this.getApellido());
@@ -82,15 +75,19 @@ public class ClienteForm {
 
         return p;
     }
+
     public Date getFechaNacimiento() {
         return fechaNacimiento;
     }
+
     public void setFechaNacimiento(Date fechaNacimiento) {
         this.fechaNacimiento = fechaNacimiento;
     }
+
     public Boolean getEditando() {
         return editando;
     }
+
     public void setEditando(Boolean editando) {
         this.editando = editando;
     }

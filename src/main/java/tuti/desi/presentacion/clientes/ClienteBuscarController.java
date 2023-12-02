@@ -7,13 +7,8 @@ import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import tuti.desi.entidades.Ciudad;
+import org.springframework.web.bind.annotation.*;
 import tuti.desi.entidades.Cliente;
-import tuti.desi.servicios.ciudades.CiudadService;
 import tuti.desi.servicios.clientes.ClienteService;
 
 import java.util.List;
@@ -25,30 +20,20 @@ public class ClienteBuscarController {
     @Autowired
     private ClienteService service;
 
-    @Autowired
-    private CiudadService serviceCiudad;
-
-    @RequestMapping(method= RequestMethod.GET)
+    @GetMapping
     public String preparaForm(Model modelo) {
         ClienteBuscarForm form =  new ClienteBuscarForm();
         // Esto es por ejemplo, si quisiera poner un valor por defecto en el filtro de ciudad
-        form.setIdCiudadSeleccionada(1L);
-
+        // form.setIdCiudadSeleccionada(1L);
         // form.setCiudades(serviceCiudad.getAll());
         // en lugar de la línea anterior, hacemos @ModelAttribute("allCiudades")
-        modelo.addAttribute("formBean",form);
-        return "ingresarDNI";
+        modelo.addAttribute("formBean", form);
+        return "reservas/ingresarDNI";
     }
 
-
-    @ModelAttribute("allCiudades")
-    public List<Ciudad> getAllCiudades() {
-        return this.serviceCiudad.getAll();
-    }
-
-    @RequestMapping( method=RequestMethod.POST)
+    @PostMapping
     public String submit(
-            @ModelAttribute("formBean")  @Valid ClienteBuscarForm formBean,
+            @ModelAttribute("formBean") @Valid ClienteBuscarForm formBean,
             BindingResult result,
             ModelMap modelo,
             @RequestParam String action
@@ -61,27 +46,17 @@ public class ClienteBuscarController {
                 ObjectError error = new ObjectError("globalError", e.getMessage());
                 result.addError(error);
             }
-            modelo.addAttribute("formBean",formBean);
-            return "ingresarDNI";
+            modelo.addAttribute("formBean", formBean);
+            return "reservas/ingresarDNI";
         }
-
-
-        if(action.equals("Cancelar"))
-        {
+        if (action.equals("Cancelar")) {
             modelo.clear();
             return "redirect:/";
         }
-
-        if(action.equals("Registrar"))
-        {
+        if(action.equals("Registrar")) {
             modelo.clear();
             return "redirect:/clienteEditar";
         }
-
         return "redirect:/";
-
-
     }
-
-
 }

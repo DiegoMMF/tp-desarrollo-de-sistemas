@@ -26,14 +26,14 @@ public class ClienteEditarController {
     @Autowired
     private CiudadService serviceCiudad;
 
-    @RequestMapping(path = {"", "/{id}"},method= RequestMethod.GET)
+    @RequestMapping(path = {"", "/{id}"}, method = RequestMethod.GET)
     public String preparaForm(Model modelo, @PathVariable("id") Optional<Long> dni) throws Exception {
         if (dni.isPresent()) {
             Cliente entity = service.getClienteById(dni.get());
             ClienteForm form = new ClienteForm(entity);
             modelo.addAttribute("formBean", form);
         } else {
-            modelo.addAttribute("formBean",new ClienteForm());
+            modelo.addAttribute("formBean", new ClienteForm());
         }
         return "clienteEditar";
     }
@@ -44,17 +44,16 @@ public class ClienteEditarController {
     }
 
     @RequestMapping(path = "/delete/{id}", method = RequestMethod.GET)
-    public String deleteClienteById(Model model, @PathVariable("id") Long id)
-    {
+    public String deleteClienteById(Model model, @PathVariable("id") Long id) {
         service.deleteClienteById(id);
         return "redirect:/clientesBuscar";
     }
 
 
-    @RequestMapping( method=RequestMethod.POST)
-    public String submit(@ModelAttribute("formBean") @Valid ClienteForm formBean, BindingResult result, ModelMap modelo, @RequestParam String action) throws Exception  {
+    @RequestMapping(method = RequestMethod.POST)
+    public String submit(@ModelAttribute("formBean") @Valid ClienteForm formBean, BindingResult result, ModelMap modelo, @RequestParam String action) throws Exception {
 
-        if(action.equals("Aceptar")) {
+        if (action.equals("Aceptar")) {
             /*
             Para poner errores custom asociados a
             FieldError error2 = new FieldError("formBean","dni","este es otro error.");
@@ -63,31 +62,30 @@ public class ClienteEditarController {
             result.addError(error);
             */
 
-            if(result.hasErrors()) {
-                modelo.addAttribute("formBean",formBean);
+            if (result.hasErrors()) {
+                modelo.addAttribute("formBean", formBean);
                 return "clienteEditar";
             } else {
-                Cliente p=formBean.toPojo();
-                p.setCiudad(serviceCiudad.getById(formBean.getIdCiudad()));
+                Cliente p = formBean.toPojo();
                 try {
                     service.save(p);
 
                     return "redirect:/clientesBuscar";
                 } catch (Excepcion e) {
                     // Si la excepcion refiere a un atributo del objeto, se muestra junto al componente (ej. dni)
-                    if(e.getAtributo()==null) {
+                    if (e.getAtributo() == null) {
                         ObjectError error = new ObjectError("globalError", e.getMessage());
                         result.addError(error);
                     } else {
-                        FieldError error1 = new FieldError("formBean",e.getAtributo(),e.getMessage());
+                        FieldError error1 = new FieldError("formBean", e.getAtributo(), e.getMessage());
                         result.addError(error1);
                     }
-                    modelo.addAttribute("formBean",formBean);
+                    modelo.addAttribute("formBean", formBean);
                     return "clienteEditar";//Como existe un error me quedo en la misma pantalla
                 }
             }
         }
-        if(action.equals("Cancelar")) {
+        if (action.equals("Cancelar")) {
             modelo.clear();
             return "redirect:/clientesBuscar";
         }

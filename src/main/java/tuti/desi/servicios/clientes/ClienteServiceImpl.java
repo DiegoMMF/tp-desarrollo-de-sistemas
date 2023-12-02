@@ -16,22 +16,18 @@ import java.util.Optional;
 public class ClienteServiceImpl implements ClienteService {
 
     @Autowired
-    IClienteRepo repo;
+    IClienteRepo clienteRepository;
 
     @Override
     public List<Cliente> getAll() {
-        return repo.findAll();
+        return clienteRepository.findAll();
     }
 
     @Override
-    public List<Cliente> filter(ClienteBuscarForm filter) throws Excepcion {
-        if (filter.getNombre() == null && filter.getDni() == null && filter.getIdCiudadSeleccionada() == null)
-            throw new Excepcion("Es necesario al menos un filtro");
-        else
-            return repo.findByNombreOrIdCiudad(filter.getNombre(),filter.getDni(),filter.getIdCiudadSeleccionada());
-
-
-
+    public List<Cliente> filter(ClienteBuscarForm clienteBuscarForm) throws Excepcion {
+        if (clienteBuscarForm.getDni() == null)
+            throw new Excepcion("Es necesario ingresar un DNI para realizar la búsqueda");
+        return clienteRepository.findByDni(clienteBuscarForm.getDni());
     }
 
     @Override
@@ -44,17 +40,17 @@ public class ClienteServiceImpl implements ClienteService {
 
         if(cliente.getDni()<35000000 && cliente.getFechaNacimiento().after(gc.getTime()))
             throw new Excepcion("El dni no corresponde a la fecha de nacimiento indicada");  //error global mostrado arriba
-        else if(!cliente.getEditando() && repo.existsById(cliente.getDni()))
+        else if(!cliente.getEditando() && clienteRepository.existsById(cliente.getDni()))
             throw new Excepcion("El dni ya se encuentra asociado a otra cliente", "dni");  //error asociado al campo dni
         else
-            repo.save(cliente);
+            clienteRepository.save(cliente);
 
     }
 
     @Override
     public Cliente getClienteById(Long idCliente) throws Exception {
 
-        Optional<Cliente> p = repo.findById(idCliente);
+        Optional<Cliente> p = clienteRepository.findById(idCliente);
 
         if(p!=null) {
             return p.get();
@@ -65,9 +61,6 @@ public class ClienteServiceImpl implements ClienteService {
 
     @Override
     public void deleteClienteById(Long id) {
-        repo.deleteById(id);
-
+        clienteRepository.deleteById(id);
     }
-
-
 }
