@@ -46,7 +46,7 @@ public class Vuelo {
     private String estado = "Normal";
 
     @OneToMany(mappedBy = "vuelo", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Asiento> asientos;
+    private List<Asiento> asientos = new ArrayList<>();
 
     public Vuelo() {
     }
@@ -59,6 +59,7 @@ public class Vuelo {
         this.precioPasaje = precioPasaje;
         this.fechaHoraPartida = fechaHoraPartida;
         this.avion = avion;
+        this.asientos = new ArrayList<>();
     }
 
     // Getters
@@ -149,8 +150,12 @@ public class Vuelo {
 
     public Integer getCantidadDeAsientosLibres() {
         Integer res = 0;
-        for (int i = 0; i < this.cantidadDeAsientos; i++) {
-            if (this.asientos.get(i).getCliente() == null) res++;
+        if (this.asientos != null) {
+            for (Asiento asiento : this.asientos) {
+                if (asiento.getCliente() == null) {
+                    res++;
+                }
+            }
         }
         return res;
     }
