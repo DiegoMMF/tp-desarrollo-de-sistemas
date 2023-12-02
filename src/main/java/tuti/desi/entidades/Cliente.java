@@ -9,7 +9,11 @@ public class Cliente {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+<<<<<<< HEAD
     @Column(name = "id", nullable = false, unique = true)
+=======
+	@Column(name = "id", nullable = false, unique = true)
+>>>>>>> main
     private Long customerId;
 
     @Column(nullable = false, unique = true)
