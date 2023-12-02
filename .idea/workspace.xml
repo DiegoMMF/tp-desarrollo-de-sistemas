@@ -7,11 +7,8 @@
     <list default="true" id="a7e0fa7c-2fff-46bd-ac47-b58f1a758590" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/tuti/desi/presentacion/clientes/ClienteBuscarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tuti/desi/presentacion/clientes/ClienteBuscarController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tuti/desi/presentacion/reservas/ReservaController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tuti/desi/presentacion/reservas/ReservaForm.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/clienteBuscar.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/clienteBuscar.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/clienteBuscar.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/ingresarDNI.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/reserva.html" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

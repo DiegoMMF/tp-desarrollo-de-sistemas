@@ -19,7 +19,7 @@ import tuti.desi.servicios.clientes.ClienteService;
 import java.util.List;
 
 @Controller
-@RequestMapping("/clienteBuscar")
+@RequestMapping("/ingresar-dni")
 public class ClienteBuscarController {
 
     @Autowired
@@ -37,7 +37,7 @@ public class ClienteBuscarController {
         // form.setCiudades(serviceCiudad.getAll());
         // en lugar de la línea anterior, hacemos @ModelAttribute("allCiudades")
         modelo.addAttribute("formBean",form);
-        return "clienteBuscar";
+        return "ingresarDNI";
     }
 
 
@@ -62,7 +62,7 @@ public class ClienteBuscarController {
                 result.addError(error);
             }
             modelo.addAttribute("formBean",formBean);
-            return "clienteBuscar";
+            return "ingresarDNI";
         }
 
 
