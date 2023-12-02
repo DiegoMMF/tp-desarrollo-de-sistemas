@@ -6,20 +6,20 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import tuti.desi.servicios.clientes.ClienteService;
 
 import java.util.Optional;
 
 @Controller
-@RequestMapping("/clientes")
-public class ClienteController {
+@RequestMapping("/clientesBuscar")
+public class ClienteEditController {
 
     @Autowired
     private ClienteService servicioCliente;
 
     @GetMapping
     public String preparaForm(Model modelo) {
+        ClienteSearchForm form = new ClienteSearchForm();
         modelo.addAttribute("clientes", servicioCliente.findAll());
         return "clientes";
     }
@@ -37,18 +37,18 @@ public class ClienteController {
         return "clientes";
     }
 
-    @RequestMapping( path = { "", "/{id}" }, method= RequestMethod.GET )
+    /* @RequestMapping( path = { "", "/{id}" }, method= RequestMethod.GET )
     public String preparaForm(
             Model modelo,
             @PathVariable("id") Optional<Long> dni
     ) throws Exception {
         if (dni.isPresent()) {
-            Persona entity = service.getPersonaById(dni.get());
-            PersonaForm form = new PersonaForm(entity);
+            Cliente entity = service.getClienteById(dni.get());
+            ClienteEditForm form = new ClienteEditForm(entity);
             modelo.addAttribute("formBean", form);
         } else {
-            modelo.addAttribute("formBean",new PersonaForm());
+            modelo.addAttribute("formBean",new ClienteEditForm());
         }
         return "personasEditar";
-    }
+    }*/
 }

@@ -2,7 +2,7 @@ package tuti.desi.presentacion.clientes;
 
 import jakarta.validation.constraints.NotNull;
 
-public class ClienteForm {
+public class ClienteEditForm {
 
     @NotNull(message = "El dni no puede ser nulo")
     private Long dni;
@@ -28,10 +28,10 @@ public class ClienteForm {
     @NotNull(message = "El número de pasaporte no puede ser nulo")
     private String passportNumber;
 
-    public ClienteForm() {
+    public ClienteEditForm() {
     }
 
-    public ClienteForm(Long dni, String name, String surname, String birthDate, String email, Long phoneNumber, String address, String passportNumber) {
+    public ClienteEditForm(Long dni, String name, String surname, String birthDate, String email, Long phoneNumber, String address, String passportNumber) {
         this.dni = dni;
         this.name = name;
         this.surname = surname;
@@ -64,7 +64,7 @@ public class ClienteForm {
 
     @Override
     public String toString() {
-        return "ClienteForm{" +
+        return "ClienteEditForm{" +
                 "dni=" + dni +
                 ", name='" + name + '\'' +
                 ", surname='" + surname + '\'' +
@@ -76,8 +76,8 @@ public class ClienteForm {
                 '}';
     }
 
-    public ClienteForm toPojo() {
-        return new ClienteForm(
+    public ClienteEditForm toPojo() {
+        return new ClienteEditForm(
                 dni,
                 name,
                 surname,

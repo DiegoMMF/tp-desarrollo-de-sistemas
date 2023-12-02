@@ -5,14 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a7e0fa7c-2fff-46bd-ac47-b58f1a758590" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/tuti/desi/accesoDatos/IClienteRepo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/tuti/desi/presentacion/clientes/ClienteController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/tuti/desi/presentacion/clientes/ClienteForm.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/tuti/desi/servicios/clientes/ClienteService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/tuti/desi/servicios/clientes/ClienteServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/tuti/desi/presentacion/clientes/ClienteSearchController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/tuti/desi/presentacion/clientes/ClienteSearchForm.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tuti/desi/entidades/Cliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tuti/desi/entidades/Cliente.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tuti/desi/excepciones/Excepcion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tuti/desi/excepciones/Excepcion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tuti/desi/presentacion/clientes/ClienteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tuti/desi/presentacion/clientes/ClienteEditController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tuti/desi/presentacion/clientes/ClienteForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tuti/desi/presentacion/clientes/ClienteEditForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tuti/desi/servicios/clientes/ClienteService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tuti/desi/servicios/clientes/ClienteService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tuti/desi/servicios/clientes/ClienteServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tuti/desi/servicios/clientes/ClienteServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tuti/desi/accesoDatos/IVueloRepo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tuti/desi/accesoDatos/IVueloRepo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tuti/desi/entidades/Vuelo$TipoVuelo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tuti/desi/entidades/Vuelo$TipoVuelo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tuti/desi/entidades/Vuelo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tuti/desi/entidades/Vuelo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tuti/desi/presentacion/VueloController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tuti/desi/presentacion/VueloController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tuti/desi/presentacion/VueloForm.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tuti/desi/presentacion/VueloForm.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tuti/desi/servicios/VueloService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tuti/desi/servicios/VueloService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tuti/desi/servicios/VueloServiceI.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tuti/desi/servicios/VueloServiceI.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,7 +62,7 @@
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;Diego&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
   }

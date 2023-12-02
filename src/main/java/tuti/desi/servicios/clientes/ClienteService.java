@@ -24,6 +24,4 @@ public interface ClienteService {
     Cliente getClienteByDni(Long dni) throws Exception;
 
     void deleteClienteByDni(Long dni);
-
-
 }
