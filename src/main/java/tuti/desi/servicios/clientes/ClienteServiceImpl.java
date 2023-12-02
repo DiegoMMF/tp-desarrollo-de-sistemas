@@ -32,16 +32,7 @@ public class ClienteServiceImpl implements ClienteService {
 
     @Override
     public void save(Cliente cliente) throws Excepcion {
-        GregorianCalendar gc = new GregorianCalendar();
-        gc.set(Calendar.YEAR, 2000);
-        gc.set(Calendar.DATE, 1);
-        gc.set(Calendar.MONTH, 1);
-
-        if (cliente.getDni() < 35000000 && cliente.getFechaNacimiento().after(gc.getTime()))
-            // error global mostrado arriba
-            throw new Excepcion("El dni no corresponde a la fecha de nacimiento indicada");
-        else if (!cliente.getEditando() && clienteRepository.existsById(cliente.getDni()))
-            // error asociado al campo dni
+        if (clienteRepository.existsById(cliente.getDni()))
             throw new Excepcion("El dni ya se encuentra asociado a otro cliente", "dni");
         else
             clienteRepository.save(cliente);

@@ -47,7 +47,7 @@ public class ClienteEditarController {
     }
 
 
-    @PostMapping
+    @PostMapping("/crear-cliente")
     public String submit(
             @ModelAttribute("formBean") @Valid ClienteForm formBean,
             BindingResult result,
@@ -57,13 +57,12 @@ public class ClienteEditarController {
         if (action.equals("Aceptar")) {
             if (result.hasErrors()) {
                 modelo.addAttribute("formBean", formBean);
-                return "crearCliente";
+                return "reservas/crearCliente";
             } else {
                 Cliente p = formBean.toPojo();
                 try {
                     clienteService.save(p);
-
-                    return "redirect:/clientesBuscar";
+                    return "redirect:/";
                 } catch (Excepcion e) {
                     // Si la excepcion refiere a un atributo del objeto, se muestra junto al componente (ej. dni)
                     if (e.getAtributo() == null) {
@@ -74,7 +73,8 @@ public class ClienteEditarController {
                         result.addError(error1);
                     }
                     modelo.addAttribute("formBean", formBean);
-                    return "crearCliente";//Como existe un error me quedo en la misma pantalla
+                    // Como existe un error me quedo en la misma pantalla
+                    return "reservas/crearCliente";
                 }
             }
         }

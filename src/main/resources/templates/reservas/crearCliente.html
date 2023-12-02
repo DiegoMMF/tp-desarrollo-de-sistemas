@@ -1,14 +1,16 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org" lang="es">
 <head>
-  <title><span th:text="#{cliente.editar.titulo}"/></title>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-  <link rel="stylesheet" th:href="@{/css/main.css}"/>
+    <title><span th:text="#{cliente.editar.titulo}"/></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" th:href="@{/css/main.css}"/>
 </head>
 <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
 
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
 
 <script>
     $(document).ready(function(){
@@ -24,26 +26,21 @@
     })
 </script>
 <body>
-<div class="starter-template">
-    <h1><span th:text="#{empresa}"></span></h1>
-    <h2 th:text="${formBean.dni} ? #{cliente.editar.titulo}: #{cliente.registrar.titulo}"></h2>
-</div>
 <form th:action="@{/reservas/crear-cliente}" th:object="${formBean}" method="post">
     <p th:each="err : ${#fields.errors('global')}" th:text="${err}" class="error"></p>
-    <input type="hidden" id="editando" th:field="*{editando}">
-    <table style="align-self: center;">
+    <table>
         <tr>
-            <td><label th:text="#{cliente.dni}"></label></td>
-            <div th:if="${formBean.editando}">
-                <td><label th:text="*{dni}"></label></td>
-                <input type="hidden" id="id" th:field="*{dni}">
-            </div>
-            <div th:if="${!formBean.editando}">
-                <td><label>
+            <td>
+                <label th:text="#{cliente.dni}"></label>
+            </td>
+            <td>
+                <label>
                     <input type="number" th:field="*{dni}"/>
-                </label></td>
-            </div>
-            &lt;!&ndash;<td><p th:if="${#fields.hasErrors('dni')}" th:errorclass="error" th:errors="*{dni}"></p></td>&ndash;&gt;
+                </label>
+            </td>
+            <td>
+                <p th:if="${#fields.hasErrors('dni')}" th:errorclass="error" th:errors="*{dni}"></p>
+            </td>
             <td>
                 <ul>
                     <li th:each="err : ${#fields.errors('dni')}" th:text="${err}" class="error"></li>
@@ -65,11 +62,33 @@
             <td><p th:if="${#fields.hasErrors('apellido')}" th:errorclass="error" th:errors="*{apellido}"></p></td>
         </tr>
         <tr>
-            <td><label th:text="#{cliente.f.nac}"></label></td>
-            <td><label for="fechaNacimiento"></label><input type="text" id="fechaNacimiento" autocomplete="off" th:field="*{fechaNacimiento}"
+            <td><label th:text="#{cliente.fechaNacimiento}"></label></td>
+            <td><label for="fechaNacimiento"></label><input type="text" id="fechaNacimiento" autocomplete="off"
+                                                            th:field="*{fechaNacimiento}"
                                                             placeholder="DD/MM/YYYY"/></td>
             <td><p th:if="${#fields.hasErrors('fechaNacimiento')}" th:errorclass="error"
                    th:errors="*{fechaNacimiento}"></p></td>
+        </tr>
+        <tr>
+            <td><label th:text="#{cliente.domicilio}"></label></td>
+            <td><label>
+                <input type="text" th:field="*{domicilio}"/>
+            </label></td>
+            <td><p th:if="${#fields.hasErrors('domicilio')}" th:errorclass="error" th:errors="*{domicilio}"></p></td>
+        </tr>
+        <tr>
+            <td><label th:text="#{cliente.email}"></label></td>
+            <td><label>
+                <input type="text" th:field="*{email}"/>
+            </label></td>
+            <td><p th:if="${#fields.hasErrors('email')}" th:errorclass="error" th:errors="*{email}"></p></td>
+        </tr>
+        <tr>
+            <td><label th:text="#{cliente.pasaporte}"></label></td>
+            <td><label>
+                <input type="text" th:field="*{pasaporte}"/>
+            </label></td>
+            <td><p th:if="${#fields.hasErrors('pasaporte')}" th:errorclass="error" th:errors="*{pasaporte}"></p></td>
         </tr>
     </table>
     <table class="botones">

@@ -62,7 +62,7 @@ public class ClienteBuscarController {
         }
         if(action.equals("Registrar")) {
             modelo.clear();
-            return "reservas/crearCliente";
+            return "redirect:/reservas/crear-cliente";
         }
         return "redirect:/";
     }

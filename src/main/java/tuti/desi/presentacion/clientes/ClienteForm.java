@@ -8,10 +8,6 @@ import tuti.desi.entidades.Cliente;
 
 import java.util.Date;
 
-/**
- * Objeto necesario para insertar o eliminar un cliente.
- * Nótese que en lugar de referenciar al objeto Ciudad, reemplaza ese atributo por el idCiudad, lo cual resulta mas sencillo de representar en JSON
- */
 public class ClienteForm {
 
     @Min(value = 7000000, message = "el dni debe ser mayor a 7000000")
@@ -20,10 +16,11 @@ public class ClienteForm {
     private String apellido;
     @Size(min = 2, max = 30)
     private String nombre;
-    private Long idCiudad;
     @DateTimeFormat(pattern = "dd/MM/yyyy")
     private Date fechaNacimiento;
-    private Boolean editando = false;
+    private String email;
+    private String pasaporte;
+    private String domicilio;
 
     public ClienteForm() {
         super();
@@ -35,61 +32,64 @@ public class ClienteForm {
         this.apellido = p.getApellido();
         this.dni = p.getDni();
         this.fechaNacimiento = p.getFechaNacimiento();
-        this.editando = true; //siempre que entre acá es porque estoy en modo edición
+        this.email = p.getEmail();
+        this.pasaporte = p.getPasaporte();
+        this.domicilio = p.getDomicilio();
     }
 
     public Long getDni() {
         return dni;
     }
-
     public void setDni(Long dni) {
         this.dni = dni;
     }
-
     public String getApellido() {
         return apellido;
     }
-
     public void setApellido(String apellido) {
         this.apellido = apellido;
     }
-
     public String getNombre() {
         return nombre;
     }
-
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+    public Date getFechaNacimiento() {
+        return fechaNacimiento;
+    }
+    public void setFechaNacimiento(Date fechaNacimiento) {
+        this.fechaNacimiento = fechaNacimiento;
+    }
+    public String getEmail() {
+        return email;
+    }
+    public void setEmail(String email) {
+        this.email = email;
+    }
+    public String getPasaporte() {
+        return pasaporte;
+    }
+    public void setPasaporte(String pasaporte) {
+        this.pasaporte = pasaporte;
+    }
+    public String getDomicilio() {
+        return domicilio;
+    }
+    public void setDomicilio(String domicilio) {
+        this.domicilio = domicilio;
     }
 
     public Cliente toPojo() {
         Cliente p = new Cliente();
-        if (!this.editando) {
-            p.setDni(this.getDni());
-        }
+        p.setDni(this.getDni());
         p.setApellido(this.getApellido());
         p.setNombre(this.getNombre());
         p.setDni(this.getDni());
         p.setFechaNacimiento(this.getFechaNacimiento());
-        p.setEditando(this.getEditando());
-
+        p.setEmail(this.getEmail());
+        p.setPasaporte(this.getPasaporte());
+        p.setDomicilio(this.getDomicilio());
         return p;
     }
-
-    public Date getFechaNacimiento() {
-        return fechaNacimiento;
-    }
-
-    public void setFechaNacimiento(Date fechaNacimiento) {
-        this.fechaNacimiento = fechaNacimiento;
-    }
-
-    public Boolean getEditando() {
-        return editando;
-    }
-
-    public void setEditando(Boolean editando) {
-        this.editando = editando;
-    }
-
 }
