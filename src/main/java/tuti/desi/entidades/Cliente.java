@@ -9,11 +9,7 @@ public class Cliente {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-<<<<<<< HEAD
     @Column(name = "id", nullable = false, unique = true)
-=======
-	@Column(name = "id", nullable = false, unique = true)
->>>>>>> main
     private Long customerId;
 
     @Column(nullable = false, unique = true)
@@ -37,9 +33,7 @@ public class Cliente {
     @Column(name = "passport_number")
     private String passportNumber;
 
-    public Cliente() {
-    }
-
+    // Constructors
     public Cliente(Long dni, String name, String address, String email, Long phoneNumber, LocalDateTime birthDate, String passportNumber) {
         this.dni = dni;
         this.name = name;
