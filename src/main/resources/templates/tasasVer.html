@@ -7,7 +7,7 @@
 </head>
 <body>
 
-   <form action="#" th:action="@{/tasasEditar}" th:object="${tasas}" method="post">
+   <form action="#" th:action="@{/tasasVer}" th:object="${tasas}" method="post">
         <h2>Editar Tasas</h2>
         <label for="iva">IVA:</label>
         <input type="text" id="iva" name="iva" th:field="*{iva}" th:required="required">
@@ -21,8 +21,8 @@
         <label for="cotizacionDolar">Cotización del Dólar:</label>
         <input type="text" id="cotizacionDolar" name="cotizacionDolar" th:field="*{cotizacionDolar}" th:required="required">
 
-        <button type="submit">Editar Tasas</button>
-        <button type="submit">Cancelar</button>
+       <button type="submit">Editar Tasas</button>
+       <button type="submit">Cancelar</button>
     </form>
 </body>
 </html>

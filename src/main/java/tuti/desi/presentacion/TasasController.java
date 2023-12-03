@@ -24,7 +24,7 @@ import tuti.desi.servicios.TasasService;
 
 
 @Controller
-@RequestMapping("/editarTasas")
+@RequestMapping("/tasasVer")
 public class TasasController {
 
     @Autowired
@@ -36,7 +36,7 @@ public class TasasController {
         TasasForm tasas  = new TasasForm(entity);
         modelo.addAttribute("tasas", tasas);
 
-        return "editarTasas";
+        return "tasasVer";
     }
 
 
@@ -44,14 +44,14 @@ public class TasasController {
     @RequestMapping(method = RequestMethod.POST)
     public String submit(@ModelAttribute("tasas") @Valid Tasas tasas, BindingResult result,
                          ModelMap modelo, @RequestParam String action) {
-        if (action.equals("Guardar Cambios")) {
+        if (action.equals("Editar Tasas")) {
             if (result.hasErrors()) {
                 return "editarTasas";
             } else {
                 try {
                     // Guarda las tasas editadas en la base de datos
                     tasasService.save(tasas);
-                    return "redirect:/index";
+                    return "redirect:/";
                 } catch (Excepcion e) {
                     // Maneja excepciones según tus necesidades
                     modelo.addAttribute("error", e.getMessage());
@@ -61,7 +61,6 @@ public class TasasController {
         }
 
         if (action.equals("Cancelar")) {
-            modelo.clear();
             return "redirect:/index";
         }
 

@@ -65,9 +65,7 @@ public class TasasService implements ITasasService {
 	}
 	@Override
 	public void save(Tasas t) throws Excepcion {
-		if(t.getId()==null ) //estoy dando de alta una nueva ciudad y ya existe una igual?
-			throw new Excepcion("Ya existe Tasas con ese id");
-		else
+		if(t.getId()==1 )
 			tasasRepo.save(t);
 
 	}
