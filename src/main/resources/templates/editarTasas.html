@@ -6,7 +6,8 @@
     <title>Editar Tasas</title>
 </head>
 <body>
-    <form action="#" th:action="@{/tasasSet/editar/{id}}" th:object="${tasa}" method="post">
+
+   <form action="#" th:action="@{/editarTasas}" th:object="${tasas}" method="post">
         <h2>Editar Tasas</h2>
         <label for="iva">IVA:</label>
         <input type="text" id="iva" name="iva" th:field="*{iva}" th:required="required">

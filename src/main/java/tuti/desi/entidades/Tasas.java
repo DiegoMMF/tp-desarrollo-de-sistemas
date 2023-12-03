@@ -15,20 +15,15 @@ import jakarta.validation.constraints.Size;
 @Validated
 public class Tasas {
 	 @Id
-	    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
 	    private Long idTasas;
-	    @Column(nullable = false)
-	    @Size(min = 0,max = 100, message = "Valor expresado en %, no debe ser mayor a 100")
-	    @DecimalMin(value = "0.00", inclusive = false)
+
 	    private Double IVA;
-	    @Column(nullable = false)
-	    @DecimalMin(value = "0.00", inclusive = false, message = "El valor debe ser positivo.")
+
 	    private Double tasaAeroportuariaNacional;
-	    @Column(nullable = false)
-	    @DecimalMin(value = "0.00", inclusive = false, message = "El valor debe ser positivo.")
+
 	    private Double tasaAeroportuariaInternacional;
-	    @Column(nullable = false)
-	    @DecimalMin(value = "0.00", inclusive = false, message = "El valor debe ser positivo.")
+
 	    private Double cotizacionDolar;
 		
 	    //Constructor vacio

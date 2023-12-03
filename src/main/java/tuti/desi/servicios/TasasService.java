@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import tuti.desi.accesoDatos.ITasasRepo;
 import tuti.desi.entidades.Tasas;
+import tuti.desi.excepciones.Excepcion;
 import tuti.desi.presentacion.TasasForm;
 
 @Service
@@ -57,10 +58,25 @@ public class TasasService implements ITasasService {
 		return tasasRepo.save(nuevasTasas);
 	}
 
-	public Tasas obtenerTasas(Long idTasas) {
+	public Long obtenerTasas(Long idTasas) {
 		Optional<Tasas> optionalTasas = tasasRepo.findById(idTasas);
-		return optionalTasas.orElse(null);
+		return optionalTasas.orElse(null).getId();
+
+	}
+	@Override
+	public void save(Tasas t) throws Excepcion {
+		if(t.getId()==null ) //estoy dando de alta una nueva ciudad y ya existe una igual?
+			throw new Excepcion("Ya existe Tasas con ese id");
+		else
+			tasasRepo.save(t);
 
 	}
 
-}
+	@Override
+	public Tasas obtenerTasasExistente() {
+		return tasasRepo.findFirstByOrderById();
+		}
+	}
+
+
+

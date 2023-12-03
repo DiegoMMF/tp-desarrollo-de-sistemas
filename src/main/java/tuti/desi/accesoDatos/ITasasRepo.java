@@ -12,5 +12,9 @@ import tuti.desi.entidades.Vuelo;
 @Repository
 public interface ITasasRepo extends JpaRepository<Tasas, Long> {
 	 Optional<Tasas> findByidTasas(Long idTasas);
-}
+
+	 Tasas findFirstByOrderById();
+	}
+
+
 

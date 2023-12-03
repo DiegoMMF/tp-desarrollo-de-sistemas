@@ -1,51 +1,76 @@
 package tuti.desi.presentacion;
 
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
+import org.springframework.validation.ObjectError;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
 
 
+import tuti.desi.entidades.Ciudad;
 import tuti.desi.entidades.Tasas;
+import tuti.desi.excepciones.Excepcion;
+import tuti.desi.presentacion.ciudades.CiudadForm;
 import tuti.desi.servicios.TasasService;
 
+
+
 @Controller
-@RequestMapping("/tasasSet")
+@RequestMapping("/editarTasas")
 public class TasasController {
+
     @Autowired
     private TasasService tasasService;
 
-    @GetMapping
+    @RequestMapping(method= RequestMethod.GET)
     public String preparaForm(Model modelo) {
-        TasasForm form = new TasasForm();
-        modelo.addAttribute("formBean", form);
-        return "tasas";
+        Tasas entity = tasasService.obtenerTasasExistente();
+        TasasForm tasas  = new TasasForm(entity);
+        modelo.addAttribute("tasas", tasas);
+
+        return "editarTasas";
     }
 
-    @PostMapping("/editar/{id}")
-    public ResponseEntity<Tasas> editarTasas(@PathVariable Long id, @RequestBody TasasForm tasasForm) {
-        tasasService.editarTasas(id, tasasForm);
-        return ResponseEntity.ok().build();
+
+
+    @RequestMapping(method = RequestMethod.POST)
+    public String submit(@ModelAttribute("tasas") @Valid Tasas tasas, BindingResult result,
+                         ModelMap modelo, @RequestParam String action) {
+        if (action.equals("Guardar Cambios")) {
+            if (result.hasErrors()) {
+                return "editarTasas";
+            } else {
+                try {
+                    // Guarda las tasas editadas en la base de datos
+                    tasasService.save(tasas);
+                    return "redirect:/index";
+                } catch (Excepcion e) {
+                    // Maneja excepciones según tus necesidades
+                    modelo.addAttribute("error", e.getMessage());
+                    return "editarTasas";
+                }
+            }
+        }
+
+        if (action.equals("Cancelar")) {
+            modelo.clear();
+            return "redirect:/index";
+        }
+
+        return "redirect:/";
     }
 
-    @PostMapping("/crear")
-    public ResponseEntity<Tasas> crearTasas(@RequestBody TasasForm tasasForm) {
-        Tasas tasaCreada = tasasService.crearTasas(tasasForm);
-        return new ResponseEntity<>(tasaCreada, HttpStatus.CREATED);
-    }
 
-   
 }
+
 
 	
 
