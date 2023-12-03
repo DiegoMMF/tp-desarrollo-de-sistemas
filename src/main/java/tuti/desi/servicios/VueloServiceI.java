@@ -17,4 +17,5 @@ public interface VueloServiceI {
 	Vuelo obtenerVueloPorNumeroVuelo(String numeroVuelo);
 	List<Vuelo> obtenerVuelosPorFecha(LocalDateTime localDateTime);
     List<Asiento> obtenerAsientosDisponibles(Long idVuelo);
+    List<Asiento> obtenerAsientosReservadosPorVuelo(Long idVuelo);
 }

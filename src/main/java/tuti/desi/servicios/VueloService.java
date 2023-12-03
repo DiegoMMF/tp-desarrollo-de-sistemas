@@ -130,4 +130,16 @@ public class VueloService implements VueloServiceI {
         return null;
     }
 
+    @Override
+    public List<Asiento> obtenerAsientosReservadosPorVuelo(Long vueloId) {
+        Vuelo vuelo = vueloRepo.findById(vueloId).orElse(null);
+
+        if (vuelo != null) {
+            return vuelo.getAsientos().stream()
+                    .filter(asiento -> asiento.getCliente() != null)
+                    .collect(Collectors.toList());
+        }
+
+        return null;
+    }
 }

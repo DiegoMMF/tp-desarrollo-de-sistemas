@@ -2,7 +2,6 @@ package tuti.desi.presentacion.clientes;
 
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -15,6 +14,7 @@ import tuti.desi.entidades.Cliente;
 import tuti.desi.entidades.Vuelo;
 import tuti.desi.excepciones.Excepcion;
 import tuti.desi.servicios.VueloService;
+import tuti.desi.servicios.asientos.AsientoService;
 import tuti.desi.servicios.clientes.ClienteService;
 
 import java.util.Collections;
@@ -29,6 +29,9 @@ public class ClienteEditarController {
 
     @Autowired
     private VueloService vueloService;
+
+    @Autowired
+    private AsientoService asientoService;
 
     @GetMapping("/crear-cliente")
     public String preparaForm(Model modelo) throws Exception {
@@ -54,6 +57,17 @@ public class ClienteEditarController {
         modelo.addAttribute("formBean", form);
         if (idVuelo != null) {
             List<Asiento> asientosDisponibles = vueloService.obtenerAsientosDisponibles(idVuelo);
+
+            boolean alreadyReserved = false;
+            List<Asiento> asientosReservados = vueloService.obtenerAsientosReservadosPorVuelo(idVuelo);
+            for (Asiento asientoReservado : asientosReservados) {
+                if (asientoReservado.getCliente().getDni().equals(dni)) {
+                    alreadyReserved = true;
+                    break;
+                }
+            }
+            modelo.addAttribute("precio", vueloService.obtenerVueloPorId(idVuelo).getPrecioPasaje());
+            modelo.addAttribute("clienteYaHaReservado", alreadyReserved);
             modelo.addAttribute("idVuelo", idVuelo);
             modelo.addAttribute("asientosDisponibles", asientosDisponibles);
         }
@@ -67,19 +81,23 @@ public class ClienteEditarController {
             ModelMap model,
             @PathVariable("dni") Long dni,
             @PathVariable("idVuelo") Long idVuelo,
-            @RequestParam("asiento") Integer asiento,
+            @RequestParam("asiento") Long asiento,
             @RequestParam String action
-    ) {
+    ) throws Exception {
         if (action.equals("Reservar")) {
-            System.out.println("--------------------------------------------------");
-            System.out.println("Reservando asiento " + asiento);
-            System.out.println("Del vuelo " + idVuelo);
-            System.out.println("Para el cliente " + dni);
-            System.out.println("--------------------------------------------------");
+            if (result.hasErrors()) {
+                model.addAttribute("formBean", formBean);
+                return "reservas/reservarVuelo";
+            }
+            Asiento asientoReservado = asientoService.obtenerAsientoPorId(asiento);
+            asientoReservado.setCliente(clienteService.getClienteByDni(dni));
+            Boolean success = asientoService.update(asientoReservado);
+            if (!success) {
+                throw new RuntimeException("No se pudo reservar el asiento");
+            };
         }
-        return "redirect:/";
+        return "/success";
     }
-
 
 
     @ModelAttribute("allVuelos")
@@ -119,7 +137,7 @@ public class ClienteEditarController {
                 Cliente p = formBean.toPojo();
                 try {
                     clienteService.save(p);
-                    return "redirect:/";
+                    return "/success";
                 } catch (Excepcion e) {
                     // Si la excepcion refiere a un atributo del objeto, se muestra junto al componente (ej. dni)
                     if (e.getAtributo() == null) {
@@ -137,7 +155,7 @@ public class ClienteEditarController {
         }
         if (action.equals("Cancelar")) {
             modelo.clear();
-            return "redirect:/clientesBuscar";
+            return "redirect:/";
         }
         return "redirect:/";
     }
