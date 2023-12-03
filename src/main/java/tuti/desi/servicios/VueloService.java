@@ -10,8 +10,10 @@ import tuti.desi.presentacion.VueloForm;
 import tuti.desi.servicios.ciudades.CiudadService;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class VueloService implements VueloServiceI {
@@ -19,7 +21,6 @@ public class VueloService implements VueloServiceI {
     private final IVueloRepo vueloRepo;
     private final AvionService avionService;
     private final CiudadService ciudadService;
-
 
     @Autowired
     public VueloService(IVueloRepo vueloRepositorio, AvionService avionService, CiudadService ciudadService) {
@@ -51,7 +52,7 @@ public class VueloService implements VueloServiceI {
     }
 
     @Override
-    public Vuelo crearVuelo(VueloForm vueloForm) {
+    public void crearVuelo(VueloForm vueloForm) {
         if (obtenerVueloPorNumeroVuelo(vueloForm.getNumeroVuelo()) != null) {
             throw new DataIntegrityViolationException("Ya existe un vuelo con el numero de vuelo: " + vueloForm.getNumeroVuelo());
         } else {
@@ -97,7 +98,7 @@ public class VueloService implements VueloServiceI {
                 vuelo.setCantidadDeAsientos(vuelo.getAvion().getCantFilas() * vuelo.getAvion().getAsientosPorFila());
 
                 System.out.println("Guardando nuevo vuelo: " + vuelo);
-                return vueloRepo.save(vuelo);
+                vueloRepo.save(vuelo);
             }
         }
     }
@@ -116,4 +117,17 @@ public class VueloService implements VueloServiceI {
     public void eliminarVuelo(Long id) {
         vueloRepo.deleteById(id);
     }
+
+    public List<Asiento> obtenerAsientosDisponibles(Long vueloId) {
+        Vuelo vuelo = vueloRepo.findById(vueloId).orElse(null);
+
+        if (vuelo != null) {
+            return vuelo.getAsientos().stream()
+                    .filter(asiento -> asiento.getCliente() == null)
+                    .collect(Collectors.toList());
+        }
+
+        return null;
+    }
+
 }

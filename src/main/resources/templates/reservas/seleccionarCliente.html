@@ -42,11 +42,7 @@
             <td th:text="${{p.email}}"></td>
             <td th:text="${{p.fechaNacimiento}}"></td>
             <td th:text="${{p.pasaporte}}"></td>
-            <td>
-                <a th:href="@{/reservas/{dni}(dni=${p.dni})}" class="btn btn-primary">
-                    Elegir
-                </a>
-            </td>
+            <td><a th:href="@{/reservas/{dni}(dni=${p.dni})}" class="btn btn-primary">Reservar con este Cliente</a></td>
         </tr>
         </tbody>
     </table>

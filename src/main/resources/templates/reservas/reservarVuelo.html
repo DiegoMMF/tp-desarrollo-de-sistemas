@@ -1,10 +1,42 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Reservar</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservas</title>
 </head>
 <body>
-<h1>Hola! Estás reservando!</h1>
+<h2>Reservas para el cliente con DNI: 12341234</h2>
+
+<!-- Formulario para seleccionar vuelo -->
+<form th:action="@{'/reservas/' + ${dni}}" method="get">
+    <label for="vuelo">Seleccione un vuelo:</label>
+    <select id="vuelo" name="vuelo">
+        <option th:each="vuelo : ${allVuelos}" th:value="${vuelo.id}" th:text="${vuelo.numeroVuelo}"></option>
+    </select>
+    <button type="submit">Aceptar</button>
+</form>
+
+<!-- Dropdown de asientos disponibles -->
+<div th:if="${idVuelo != null}">
+    <h3>Selecciona un asiento:</h3>
+    <div th:if="${asientosDisponibles.size > 0}">
+        <form th:action="@{'/reservas/' + ${dni} + '/' + ${idVuelo}}" method="post">
+            <input type="hidden" name="vuelo" th:value="${idVuelo}" />
+            <input type="hidden" name="dni" th:value="${dni}" />
+            <select id="asiento" name="asiento">
+                <option th:each="asiento : ${asientosDisponibles}" th:value="${asiento.fila + asiento.columna}" th:text="'F' + ${asiento.fila} + 'C' + ${asiento.columna}"></option>
+            </select>
+            <!--<div class="botones">-->
+                <input type="submit" name="action" value="Reservar"/>
+            <!--<input type="submit" name="action" value="Cancelar"/>
+        </div>-->
+        </form>
+    </div>
+    <div th:if="${asientosDisponibles.size == 0}">
+        <p>No hay asientos disponibles para este vuelo</p>
+    </div>
+</div>
+
 </body>
 </html>

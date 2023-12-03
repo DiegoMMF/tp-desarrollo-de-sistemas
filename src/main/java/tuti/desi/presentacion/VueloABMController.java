@@ -42,7 +42,6 @@ public class VueloABMController {
         model.addAttribute("listaAviones", listaAviones);
         model.addAttribute("listaCiudades", listaCiudades);
 
-        // Obtener la lista de vuelos (puedes ajustar esto según cómo obtengas la lista)
         List<Vuelo> listaVuelos = vueloService.obtenerTodosLosVuelos();
         model.addAttribute("vuelos", listaVuelos);
 

@@ -39,6 +39,4 @@ public class AvionController {
         Avion nuevoAvion = avionService.agregarAvion(avion);
         return new ResponseEntity<>(nuevoAvion, HttpStatus.CREATED);
     }
-
-    // Puedes agregar otros métodos según tus necesidades.
 }

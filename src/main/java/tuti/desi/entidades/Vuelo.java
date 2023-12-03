@@ -148,7 +148,7 @@ public class Vuelo {
         this.cantidadDeAsientos = cant;
     }
 
-    public Integer getCantidadDeAsientosLibres() {
+    /*public Integer getCantidadDeAsientosLibres() {
         Integer res = 0;
         if (this.asientos != null) {
             for (Asiento asiento : this.asientos) {
@@ -158,9 +158,20 @@ public class Vuelo {
             }
         }
         return res;
+    }*/
+
+    public long getCantidadDeAsientosLibres() {
+        return this.asientos.stream().filter(asiento -> asiento.getCliente() == null).count();
     }
 
+
+    /*public void addAsiento(Asiento a) {
+        this.asientos.add(a);
+    }*/
     public void addAsiento(Asiento a) {
+        if (this.asientos == null) {
+            this.asientos = new ArrayList<>();
+        }
         this.asientos.add(a);
     }
 
