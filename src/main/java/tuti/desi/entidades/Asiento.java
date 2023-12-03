@@ -8,13 +8,17 @@ public class Asiento {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     @Column(nullable = false)
     private int fila;
+
     @Column(nullable = false)
     private int columna;
+
     @OneToOne
     @JoinColumn(name = "cliente_id", nullable = true)
     private Cliente cliente;
+
     @ManyToOne
     @JoinColumn(name = "vuelo_id", nullable = false)
     private Vuelo vuelo;

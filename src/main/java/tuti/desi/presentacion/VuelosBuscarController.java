@@ -57,7 +57,7 @@ public class VuelosBuscarController {
 
         if (action.equals("Registrar")) {
             modelo.clear();
-            return "redirect:/vueloEditar";
+            return "redirect:/vueloABM";
         }
 
         return "redirect:/";
