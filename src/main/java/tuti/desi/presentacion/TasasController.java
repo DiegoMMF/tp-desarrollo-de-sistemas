@@ -21,9 +21,6 @@ public class TasasController {
     @GetMapping
     public String preparaForm(Model modelo) {
         Tasas entity = tasasService.obtenerTasasExistente();
-        if (entity == null) {
-            entity = new Tasas();
-        }
         TasasForm tasas = new TasasForm(entity);
         modelo.addAttribute("tasas", tasas);
         return "tasasVer";
