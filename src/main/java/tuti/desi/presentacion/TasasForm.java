@@ -10,25 +10,29 @@ import tuti.desi.entidades.Tasas;
 public class TasasForm {
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idTasas;
+    private Long id;
+
     @Column(nullable = false)
     @Size(min = 0,max = 100, message = "Valor expresado en %, no debe ser mayor a 100")
     @DecimalMin(value = "0.00", inclusive = false)
     private Double iva;
+
     @Column(nullable = false)
     @DecimalMin(value = "0.00", inclusive = false, message = "El valor debe ser positivo.")
     private Double tasaAeroportuariaNacional;
+
     @Column(nullable = false)
     @DecimalMin(value = "0.00", inclusive = false, message = "El valor debe ser positivo.")
     private Double tasaAeroportuariaInternacional;
+
     @Column(nullable = false)
     @DecimalMin(value = "0.00", inclusive = false, message = "El valor debe ser positivo.")
     private Double cotizacionDolar;
 
     public TasasForm(Tasas t) {
         super();
-        this.idTasas= t.getId();
-        this.iva = t.getIVA();
+        this.id = t.getId();
+        this.iva = t.getIva();
         this.tasaAeroportuariaNacional = t.getTasaAeroportuariaNacional();
         this.tasaAeroportuariaInternacional = t.getTasaAeroportuariaInternacional();
         this.cotizacionDolar = t.getCotizacionDolar();
@@ -38,11 +42,11 @@ public class TasasForm {
     }
 //  getters y setters
 
-    public Long getIdTasas() {
-        return idTasas;
+    public Long getId() {
+        return id;
     }
-    public void setIdTasas(Long idTasas) {
-        this.idTasas = idTasas;
+    public void setId(Long id) {
+        this.id = id;
     }
     public Double getIva() {
         return iva;
@@ -78,8 +82,8 @@ public class TasasForm {
     public Tasas toPojo()
     {
         Tasas t = new Tasas();
-        t.setId(this.idTasas);
-        t.setIVA(this.iva);
+        t.setId(this.id);
+        t.setIva(this.iva);
         t.setTasaAeroportuariaInternacional(this.tasaAeroportuariaInternacional);
         t.setTasaAeroportuariaNacional(this.tasaAeroportuariaNacional);
         t.setCotizacionDolar(this.cotizacionDolar);

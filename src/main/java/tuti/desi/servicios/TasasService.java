@@ -17,14 +17,14 @@ public class TasasService implements ITasasService {
 	private ITasasRepo tasasRepo;
 
 	@Override
-	public void editarTasas(Long idTasas, TasasForm tasasForm) {
-		Optional<Tasas> tasasOptional = tasasRepo.findById(idTasas);
+	public void editarTasas(Long id, TasasForm tasasForm) {
+		Optional<Tasas> tasasOptional = tasasRepo.findById(id);
 
 		if (tasasOptional.isPresent()) {
 			Tasas tasasExistente = tasasOptional.get();
 
 			if (tasasForm.getIva() != null) {
-				tasasExistente.setIVA(tasasForm.getIva());
+				tasasExistente.setIva(tasasForm.getIva());
 			}
 
 			if (tasasForm.getTasaAeroportuariaInternacional() != null) {
@@ -42,14 +42,14 @@ public class TasasService implements ITasasService {
 			tasasRepo.save(tasasExistente);
 		} else {
 			
-			throw new NoSuchElementException("No eciste Tasas con ID: " + idTasas);
+			throw new NoSuchElementException("No eciste Tasas con ID: " + id);
 		}
 	}
 
 	@Override
 	public Tasas crearTasas(TasasForm tasasForm) {
 		Tasas nuevasTasas = new Tasas();
-		nuevasTasas.setIVA(tasasForm.getIva());
+		nuevasTasas.setIva(tasasForm.getIva());
 		nuevasTasas.setTasaAeroportuariaInternacional(tasasForm.getTasaAeroportuariaInternacional());
 		nuevasTasas.setTasaAeroportuariaNacional(tasasForm.getTasaAeroportuariaNacional());
 		nuevasTasas.setCotizacionDolar(tasasForm.getCotizacionDolar());
@@ -58,16 +58,17 @@ public class TasasService implements ITasasService {
 		return tasasRepo.save(nuevasTasas);
 	}
 
-	public Long obtenerTasas(Long idTasas) {
-		Optional<Tasas> optionalTasas = tasasRepo.findById(idTasas);
+	public Long obtenerTasas(Long id) {
+		Optional<Tasas> optionalTasas = tasasRepo.findById(id);
 		return optionalTasas.orElse(null).getId();
 
 	}
 	@Override
 	public void save(Tasas t) throws Excepcion {
-		if(t.getId()==1 )
-			tasasRepo.save(t);
-
+		if (t == null) {
+			throw new Excepcion("No se puede guardar un objeto nulo");
+		}
+		tasasRepo.save(t);
 	}
 
 	@Override
