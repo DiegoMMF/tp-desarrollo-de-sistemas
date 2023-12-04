@@ -35,7 +35,7 @@ public class TasasController {
     ) throws Excepcion {
         if (action.equals("Editar")) {
             tasasService.editarTasas(tasas.getId(), tasas);
-            return "redirect:/tasasEditar";
+            return "redirect:/tasasVer";
         }
         if (action.equals("Cancelar")) {
             return "redirect:/index";
