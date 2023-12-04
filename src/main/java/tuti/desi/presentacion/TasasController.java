@@ -37,18 +37,8 @@ public class TasasController {
             @RequestParam String action
     ) throws Excepcion {
         if (action.equals("Editar")) {
-            if (result.hasErrors()) {
-                return "tasasVer";
-            }
-            System.out.println("----------------------------------------");
-            System.out.println("tasas.getId() = " + tasas.getId());
-            System.out.println("tasas.getIva() = " + tasas.getIva());
-            System.out.println("tasas.getTasaAeroportuariaInternacional() = " + tasas.getTasaAeroportuariaInternacional());
-            System.out.println("tasas.getTasaAeroportuariaNacional() = " + tasas.getTasaAeroportuariaNacional());
-            System.out.println("tasas.getCotizacionDolar() = " + tasas.getCotizacionDolar());
-            System.out.println("----------------------------------------");
-            /*tasasService.save(tasas);
-            return "redirect:/tasasEditar";*/
+            tasasService.editarTasas(tasas.getId(), tasas);
+            return "redirect:/tasasEditar";
         }
         if (action.equals("Cancelar")) {
             return "redirect:/index";

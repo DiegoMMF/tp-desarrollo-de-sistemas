@@ -6,15 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="a7e0fa7c-2fff-46bd-ac47-b58f1a758590" name="Changes" comment="compilando">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tuti/desi/accesoDatos/ITasasRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tuti/desi/accesoDatos/ITasasRepo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tuti/desi/entidades/Tasas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tuti/desi/entidades/Tasas.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/tuti/desi/presentacion/TasasController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tuti/desi/presentacion/TasasController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tuti/desi/presentacion/TasasForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tuti/desi/presentacion/TasasForm.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/tuti/desi/servicios/ITasasService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tuti/desi/servicios/ITasasService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/tuti/desi/servicios/TasasService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tuti/desi/servicios/TasasService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/tasasVer.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/tasasVer.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
