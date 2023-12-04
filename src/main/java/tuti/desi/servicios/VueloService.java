@@ -8,9 +8,7 @@ import tuti.desi.entidades.Asiento;
 import tuti.desi.entidades.Vuelo;
 import tuti.desi.presentacion.VueloForm;
 import tuti.desi.servicios.ciudades.CiudadService;
-
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -57,9 +55,9 @@ public class VueloService implements VueloServiceI {
             throw new DataIntegrityViolationException("Ya existe un vuelo con el numero de vuelo: " + vueloForm.getNumeroVuelo());
         } else {
             List<Vuelo> vuelos = this.obtenerTodosLosVuelos();
-            Boolean b = false;
+            boolean b = false;
             int i = 0;
-            while (i < vuelos.size() && !b) {
+            while (i < vuelos.size()) {
                 if (vuelos.get(i).getFechaHoraPartida().getDayOfYear() == vueloForm.getFechaHoraPartida().getDayOfYear()
                         &&
                         vuelos.get(i).getFechaHoraPartida().getYear() == vueloForm.getFechaHoraPartida().getYear()) {
