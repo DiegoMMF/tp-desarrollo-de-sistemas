@@ -29,14 +29,24 @@ public class TasasForm {
     @DecimalMin(value = "0.00", inclusive = false, message = "El valor debe ser positivo.")
     private Double cotizacionDolar;
 
-    public TasasForm(Tasas t) {
-        super();
+//    public TasasForm(Tasas t) {
+//        super();
+//        this.id = t.getId();
+//        this.iva = t.getIva();
+//        this.tasaAeroportuariaNacional = t.getTasaAeroportuariaNacional();
+//        this.tasaAeroportuariaInternacional = t.getTasaAeroportuariaInternacional();
+//        this.cotizacionDolar = t.getCotizacionDolar();
+//    }
+public TasasForm(Tasas t) {
+    super();
+    if (t != null) {
         this.id = t.getId();
         this.iva = t.getIva();
         this.tasaAeroportuariaNacional = t.getTasaAeroportuariaNacional();
         this.tasaAeroportuariaInternacional = t.getTasaAeroportuariaInternacional();
         this.cotizacionDolar = t.getCotizacionDolar();
     }
+}
 
     public TasasForm() {
     }

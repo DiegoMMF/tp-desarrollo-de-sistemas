@@ -53,11 +53,27 @@ public class TasasService implements ITasasService {
 		tasasRepo.save(t);
 	}
 
-	@Override
-	public Tasas obtenerTasasExistente() {
-		return tasasRepo.findFirstByOrderById();
-		}
+//	@Override
+//	public Tasas obtenerTasasExistente() {
+//		Tasas tasas
+//		return tasasRepo.findFirstByOrderById();
+//		}
+@Override
+public Tasas obtenerTasasExistente() {
+	Tasas tasas = tasasRepo.findFirstByOrderById();
+	if (tasas == null) {
+		tasas = new Tasas();
+		tasas.setId(1L);
+		tasas.setIva(0.0);
+		tasas.setTasaAeroportuariaInternacional(0.0);
+		tasas.setTasaAeroportuariaNacional(0.0);
+		tasas.setCotizacionDolar(0.0);
+		tasasRepo.save(tasas);
 	}
+	return tasas;
+}
+}
+
 
 
 

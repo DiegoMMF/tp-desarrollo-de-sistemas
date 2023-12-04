@@ -33,12 +33,14 @@ public class TasasController {
             ModelMap modelo,
             @RequestParam String action
     ) throws Excepcion {
-        if (action.equals("Editar")) {
+        if (action.equals("Aceptar")) {
+
+
             tasasService.editarTasas(tasas.getId(), tasas);
             return "redirect:/tasasVer";
         }
         if (action.equals("Cancelar")) {
-            return "redirect:/index";
+            return "redirect:/";
         }
         return "redirect:/";
     }
