@@ -6,7 +6,7 @@
     <title>Reservas</title>
 </head>
 <body>
-<h2>Reservas para el cliente con DNI: 12341234</h2>
+<h2>Reservas para el cliente con DNI: <label th:text="${dni}"></label></h2>
 
 <!-- Formulario para seleccionar vuelo -->
 <form th:action="@{'/reservas/' + ${dni}}" method="get">
