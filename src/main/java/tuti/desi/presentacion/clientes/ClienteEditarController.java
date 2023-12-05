@@ -2,6 +2,7 @@ package tuti.desi.presentacion.clientes;
 
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -39,13 +40,6 @@ public class ClienteEditarController {
         modelo.addAttribute("formBean", form);
         return "reservas/crearCliente";
     }
-
-    /*@GetMapping("/{dni}")
-    public String preparaForm(Model modelo, @PathVariable("dni") Long dni) throws Exception {
-        ClienteForm form = new ClienteForm(clienteService.getClienteByDni(dni));
-        modelo.addAttribute("formBean", form);
-        return "reservas/reservarVuelo";
-    }*/
 
     @GetMapping("/{dni}")
     public String preparaForm(
@@ -91,10 +85,16 @@ public class ClienteEditarController {
             }
             Asiento asientoReservado = asientoService.obtenerAsientoPorId(asiento);
             asientoReservado.setCliente(clienteService.getClienteByDni(dni));
-            Boolean success = asientoService.update(asientoReservado);
-            if (!success) {
-                throw new RuntimeException("No se pudo reservar el asiento");
-            };
+            try {
+                Boolean success = asientoService.update(asientoReservado);
+                if (!success) {
+                    model.addAttribute("error", "No se pudo reservar el asiento.");
+                    return "reservas/reservarVuelo";
+                }
+            } catch (DataIntegrityViolationException e) {
+                model.addAttribute("error", "Error al reservar el asiento: " + e.getMessage());
+                return "reservas/reservarVuelo";
+            }
         }
         return "/success";
     }

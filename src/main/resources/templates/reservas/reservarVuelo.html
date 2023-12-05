@@ -19,7 +19,7 @@
 
 <!-- Dropdown de asientos disponibles -->
 <div th:if="${idVuelo != null}">
-    <h3>Selecciona un asiento:</h3>
+    <h3>Selecciona un asiento para el Vuelo: <label th:text="${idVuelo}"></label></h3>
     <div th:if="${asientosDisponibles.size > 0}">
         <div th:if="${!clienteYaHaReservado}">
             <form th:action="@{'/reservas/' + ${dni} + '/' + ${idVuelo}}" method="post">

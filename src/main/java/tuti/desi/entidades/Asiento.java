@@ -15,8 +15,8 @@ public class Asiento {
     @Column(nullable = false)
     private int columna;
 
-    @OneToOne
-    @JoinColumn(name = "cliente_id", nullable = true)
+    @ManyToOne
+    @JoinColumn(name = "cliente_id")
     private Cliente cliente;
 
     @ManyToOne

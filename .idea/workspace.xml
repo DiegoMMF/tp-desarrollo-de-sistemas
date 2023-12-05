@@ -5,13 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a7e0fa7c-2fff-46bd-ac47-b58f1a758590" name="Changes" comment="compilando">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tuti/desi/accesoDatos/IVueloRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tuti/desi/accesoDatos/IVueloRepo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tuti/desi/entidades/Tasas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tuti/desi/entidades/Tasas.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tuti/desi/servicios/TasasService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tuti/desi/servicios/TasasService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tuti/desi/servicios/VueloService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tuti/desi/servicios/VueloService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tuti/desi/entidades/Asiento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tuti/desi/entidades/Asiento.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tuti/desi/presentacion/clientes/ClienteEditarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tuti/desi/presentacion/clientes/ClienteEditarController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/reservas/reservarVuelo.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/reservas/reservarVuelo.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,16 +30,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.2"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="Desi2023Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="tuti.desi.Desi2023Application" />
