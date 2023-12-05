@@ -1,5 +1,10 @@
-# tp-desarrollo-de-sistemas
+# TP Integrador Desarrollo de Sistemas 2023
+## Tecnicatura Universitaria en Tecnologías de la Información
+### Docentes: Dardo Kuttel / Luis Stroppi
+
 Repositorio del Trabajo Práctico de la materia Desarrollo de Sistemas (TUTI 2023)
+https://github.com/DiegoMMF/tp-desarrollo-de-sistemas
+
 
 # Integrantes:
 - Germán Bruno (german.m.bruno@gmail.com)
@@ -14,7 +19,10 @@ spring.datasource.username=root
 spring.datasource.password=n0m3n35tnum3n
 
 # Datos iniciales para cargar la BD
-INSERT INTO cliente (dni, apellido, domicilio, email, fecha_nacimiento, nombre, pasaporte)
+
+CREATE DATABASE `desi2023` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */
+
+INSERT INTO desi2023.cliente (dni, apellido, domicilio, email, fecha_nacimiento, nombre, pasaporte)
 VALUES
   (123456789, 'González', 'Calle 123', 'gonzalez@gmail.com', '1990-05-15', 'Ana', 'ABC123'),
   (234567890, 'Martínez', 'Avenida 456', 'martinez@yahoo.com', '1985-08-21', 'Carlos', 'XYZ456'),
@@ -27,7 +35,7 @@ VALUES
   (901234567, 'Pérez', 'Avenida del Río', 'perez@hotmail.com', '1993-06-28', 'Martín', 'VWX789'),
   (123123123, 'Sánchez', 'Calle de la Luna', 'sanchez@gmail.com', '1987-03-07', 'Ana', 'YZA123');
  
-INSERT INTO provincia (nombre)
+INSERT INTO desi2023.provincia (nombre)
 VALUES
   ('Buenos Aires'),
   ('Catamarca'),
@@ -53,7 +61,7 @@ VALUES
   ('Tierra del Fuego, Antártida e Islas del Atlántico Sur'),
   ('Tucumán');
 
-INSERT INTO ciudad (nombre, provincia_id)
+INSERT INTO desi2023.ciudad (nombre, provincia_id)
 VALUES
   ('Buenos Aires', 1),
   ('Córdoba', 2),
@@ -66,7 +74,7 @@ VALUES
   ('Mar del Plata', 1),
   ('Tucumán', 5);
 
-INSERT INTO avion (asientos_por_fila, cant_filas, compania, modelo)
+INSERT INTO desi2023.avion (asientos_por_fila, cant_filas, compania, modelo)
 VALUES
   (2, 5, 'Aerolíneas Argentinas', 'Boeing 737'),
   (3, 4, 'LATAM Airlines', 'Airbus A320'),
