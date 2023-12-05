@@ -10,4 +10,5 @@ import tuti.desi.entidades.Vuelo;
 public interface IVueloRepo extends JpaRepository<Vuelo, Long> {
 	Optional<Vuelo> findByNumeroVuelo(String numeroVuelo);
 	List<Vuelo> findByFechaHoraPartida(LocalDateTime localDateTime);
+	boolean existsByFechaHoraPartidaAndAvionId(LocalDateTime fechaHoraPartida, Long avionId);
 }

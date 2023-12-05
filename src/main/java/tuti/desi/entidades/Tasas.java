@@ -9,7 +9,8 @@ import org.springframework.validation.annotation.Validated;
 @Validated
 public class Tasas {
     @Id
-    @Column(nullable = false, unique = true, name = "id_tasas")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_tasas")
     private Long id;
 
     private Double iva;

@@ -53,11 +53,13 @@ public class VueloService implements VueloServiceI {
     public void crearVuelo(VueloForm vueloForm) {
         if (obtenerVueloPorNumeroVuelo(vueloForm.getNumeroVuelo()) != null) {
             throw new DataIntegrityViolationException("Ya existe un vuelo con el numero de vuelo: " + vueloForm.getNumeroVuelo());
+        } else if (vueloRepo.existsByFechaHoraPartidaAndAvionId(vueloForm.getFechaHoraPartida(), vueloForm.getId_avion())) {
+            throw new IllegalArgumentException("No puede haber dos vuelos para el mismo día y avión.");
         } else {
             List<Vuelo> vuelos = this.obtenerTodosLosVuelos();
             boolean b = false;
             int i = 0;
-            while (i < vuelos.size()) {
+            while (i < vuelos.size() && !b) {
                 if (vuelos.get(i).getFechaHoraPartida().getDayOfYear() == vueloForm.getFechaHoraPartida().getDayOfYear()
                         &&
                         vuelos.get(i).getFechaHoraPartida().getYear() == vueloForm.getFechaHoraPartida().getYear()) {

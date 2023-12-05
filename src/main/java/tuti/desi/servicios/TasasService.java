@@ -35,9 +35,9 @@ public class TasasService implements ITasasService {
 		nuevasTasas.setTasaAeroportuariaNacional(tasasForm.getTasaAeroportuariaNacional());
 		nuevasTasas.setCotizacionDolar(tasasForm.getCotizacionDolar());
 
-	
 		return tasasRepo.save(nuevasTasas);
 	}
+
 
 	public Long obtenerTasas(Long id) {
 		Optional<Tasas> optionalTasas = tasasRepo.findById(id);
