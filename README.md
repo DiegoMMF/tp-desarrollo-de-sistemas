@@ -2,10 +2,10 @@
 Repositorio del Trabajo Práctico de la materia Desarrollo de Sistemas (TUTI 2023)
 
 # Integrantes:
-- Germán Bruno
-- Joaquín Courault
-- Diego M. Maldini Freyre
-- Alejandro Rodríguez
+- Germán Bruno (german.m.bruno@gmail.com)
+- Joaquín Courault (joa.courault@gmail.com)
+- Diego M. Maldini Freyre (diegomaldinifreyre@gmail.com)
+- Alejandro Rodríguez (rodriguezaristidesalejandro@gmail.com)
 
 # Se debe crear una base de datos con las siguientes características:
 
@@ -85,9 +85,8 @@ VALUES
 
 ## Área de Creación de Vuelos:
 
--
--
--
+- El listado de los vuelos figura debajo del formulario de creación de vuelos.
+- En caso de haber un error, la aplicación redirije a una pantalla donde muestra el error correspondiente.
 
 ## Área de Creación/Edición de Tasas:
 
@@ -112,12 +111,9 @@ VALUES
 
 ## Área de Búsqueda de Vuelos:
 
--
--
--
+- Por cuestiones con la implementación, en la búsqueda de los vuelos, debe ingresarse fecha y hora exacta del vuelo como figura en la BD para que la búsqueda arroje el correspondiente resultado.
 
 ## Área de Reserva de Pasajes:
 
-- 
--
--
+- Las tasas comienzan inicializadas en 0.0 por primera vez.
+- Se pueden editar en la misma pantalla y se registran en BD y muestran los datos automáticamente, o se puede cancelar y volver a la página inicial.
